@@ -1,29 +1,35 @@
-=== Beacon ===
+=== Beacon For Help Scout ===
+Author URI: https://section214.com
+Plugin URI: https://wordpress.org/plugins/beacon-for-helpscout/
 Contributors: section214
 Tags: beacon, helpscout, help scout
 Requires at least: 3.0
-Tested up to: 4.0
+Tested up to: 4.3
 Stable tag: 1.0.0
 
-WordPress integration plugin for Beacon from Help Scout
+Integrate Help Scout Beacons with your WordPress site... without dealing with messy JavaScript!
 
 == Description ==
 
-Beacon allows you to integrate Help Scouts' newest offering into your WordPress site and configure it easily.
+The new Beacon feature from Help Scout is AWESOME! But... customizing it if you aren't familiar with JavaScript can be a pain. Let us do the customization for you! Beacon For Help Scout is a simple but powerful plugin for integrating Beacons into WordPress quickly and easily. Simply follow the directions on the [installation tab](https://wordpress.org/plugins/beacon-for-helpscout/installation/), and you'll be up and runnin in no time!
 
-Simply log in to your Help Scout dashboard, create a Beacon with docs and contact both enabled, and fill in the relevant fields in the plugin. No fussing with javascript needed!
+**Follow this plugin on [GitHub](https://github.com/Section214/Beacon)**
 
 == Installation ==
 
-1. Unzip the downloaded 'beacon.zip' file
-2. Upload the 'beacon' folder to '/wp-content/plugins' directory of your WordPress installation
-3. Activate the plugin via the WordPress Plugins page
+1. Activate the plugin
+2. Go to the [Help Scout Beacon Setup Page](https://secure.helpscout.net/settings/beacons/) and create a Beacon
+3. Enable Docs and Contact Form integration
+4. Go to Settings > Beacon and enter your Help Scout Docs subdomain and the Form ID for your Beacon
+5. Configure other options to suit
+6. Profit!
 
 == Frequently Asked Questions ==
 
-None yet
+= None yet! =
 
 == Changelog ==
 
-= Version 1.0.0 =
-* Initial release
+= 1.0.0, 9/25/2015 =
+
+* First offical release!
