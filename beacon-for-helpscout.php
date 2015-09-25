@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Beacon For HelpScout
+ * Plugin Name:     Beacon For Help Scout
  * Plugin URI:      http://wordpress.org/plugins/beacon-for-helpscout
  * Description:     Integrate Beacon from Help Scout into your WordPress site
  * Version:         1.0.0
@@ -66,13 +66,13 @@ if( ! class_exists( 'Beacon' ) ) {
 		 */
 		public function setup_constants() {
 			// Plugin version
-			define( 'BEACON_FOR_HELPSCOUT_VER', '1.0.0' );
+			define( 'BEACON_VER', '1.0.0' );
 
 			// Plugin path
-			define( 'BEACON_FOR_HELPSCOUT_DIR', plugin_dir_path( __FILE__ ) );
+			define( 'BEACON_DIR', plugin_dir_path( __FILE__ ) );
 
 			// Plugin URL
-			define( 'BEACON_FOR_HELPSCOUT_URL', plugin_dir_url( __FILE__ ) );
+			define( 'BEACON_URL', plugin_dir_url( __FILE__ ) );
 		}
 
 
@@ -87,16 +87,16 @@ if( ! class_exists( 'Beacon' ) ) {
 		private function includes() {
 			global $beacon_options;
 
-            require_once BEACON_FOR_HELPSCOUT_DIR . 'includes/admin/settings/register.php';
+            require_once BEACON_DIR . 'includes/admin/settings/register.php';
             $beacon_options = beacon_get_settings();
 
-            require_once BEACON_FOR_HELPSCOUT_DIR . 'includes/scripts.php';
-            require_once BEACON_FOR_HELPSCOUT_DIR . 'includes/functions.php';
+            require_once BEACON_DIR . 'includes/scripts.php';
+            require_once BEACON_DIR . 'includes/functions.php';
 
             if( is_admin() ) {
-            	require_once BEACON_FOR_HELPSCOUT_DIR . 'includes/admin/actions.php';
-                require_once BEACON_FOR_HELPSCOUT_DIR . 'includes/admin/pages.php';
-                require_once BEACON_FOR_HELPSCOUT_DIR . 'includes/admin/settings/display.php';
+            	require_once BEACON_DIR . 'includes/admin/actions.php';
+                require_once BEACON_DIR . 'includes/admin/pages.php';
+                require_once BEACON_DIR . 'includes/admin/settings/display.php';
             }
 		}
 
@@ -155,7 +155,7 @@ if( ! class_exists( 'Beacon' ) ) {
  * @since       1.0.0
  * @return      Beacon The one true Beacon
  */
-function beacon() {
+function beacon_for_helpscout() {
 	return Beacon::instance();
 }
-add_action( 'plugins_loaded', 'beacon-for-helpscout' );
+add_action( 'plugins_loaded', 'beacon_for_helpscout' );
