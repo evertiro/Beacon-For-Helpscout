@@ -30,6 +30,10 @@ The new Beacon feature from Help Scout is AWESOME! But... customizing it if you 
 
 == Changelog ==
 
+= 1.0.1, 9/25/2015 =
+
+* Bugfixes
+
 = 1.0.0, 9/25/2015 =
 
 * First offical release!
