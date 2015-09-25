@@ -21,7 +21,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
 function beacon_add_settings_pages() {
     global $beacon_settings_page;
 
-	$beacon_settings_page = add_options_page( __( 'Beacon Settings', 'beacon' ), __( 'Beacon', 'beacon' ), 'manage_options', 'beacon-settings', 'beacon_render_settings_page' );
+	$beacon_settings_page = add_options_page( __( 'Beacon Settings', 'beacon-for-helpscout' ), __( 'Beacon', 'beacon-for-helpscout' ), 'manage_options', 'beacon-settings', 'beacon_render_settings_page' );
 }
 add_action( 'admin_menu', 'beacon_add_settings_pages', 10 );
 

@@ -21,11 +21,11 @@ function beacon_get_settings_tabs() {
 	$settings = beacon_get_registered_settings();
 
 	$tabs               = array();
-	$tabs['general']    = __( 'General', 'beacon' );
-	$tabs['customize']  = __( 'Customize', 'beacon' );
+	$tabs['general']    = __( 'General', 'beacon-for-helpscout' );
+	$tabs['customize']  = __( 'Customize', 'beacon-for-helpscout' );
 
 	// Translation doesn't work yet!
-	//$tabs['strings']    = __( 'Text Strings', 'beacon' );
+	//$tabs['strings']    = __( 'Text Strings', 'beacon-for-helpscout' );
 
 	return apply_filters( 'beacon_settings_tabs', $tabs );
 }
@@ -43,189 +43,189 @@ function beacon_get_registered_settings() {
 		'general' => apply_filters( 'beacon_settings_general', array(
 			array(
 				'id'        => 'general_header',
-				'name'      => __( 'General Settings', 'beacon' ),
+				'name'      => __( 'General Settings', 'beacon-for-helpscout' ),
 				'desc'      => '',
 				'type'      => 'header'
 			),
 			array(
 				'id'        => 'enable_docs',
-				'name'      => __( 'Enable Docs Search', 'beacon' ),
-				'desc'      => __( 'Display the docs search form in Beacon', 'beacon' ),
+				'name'      => __( 'Enable Docs Search', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Display the docs search form in Beacon', 'beacon-for-helpscout' ),
 				'type'      => 'checkbox'
 			),
 			array(
 				'id'        => 'enable_contact',
-				'name'      => __( 'Enable Contact Form', 'beacon' ),
-				'desc'      => __( 'Display a contact form in Beacon', 'beacon' ),
+				'name'      => __( 'Enable Contact Form', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Display a contact form in Beacon', 'beacon-for-helpscout' ),
 				'type'      => 'checkbox'
 			),
 			array(
 				'id'        => 'helpscout_url',
-				'name'      => __( 'HelpScout Subdomain', 'beacon' ),
-				'desc'      => sprintf( __( 'Enter the subdomain for your HelpScout Docs instance found <a href="%s" target="_blank">here</a>', 'beacon' ), 'https://secure.helpscout.net/settings/docs/site' ),
+				'name'      => __( 'HelpScout Subdomain', 'beacon-for-helpscout' ),
+				'desc'      => sprintf( __( 'Enter the subdomain for your HelpScout Docs instance found <a href="%s" target="_blank">here</a>', 'beacon-for-helpscout' ), 'https://secure.helpscout.net/settings/docs/site' ),
 				'type'      => 'text'
 			),
 			array(
 				'id'        => 'form_id',
-				'name'      => __( 'Form ID', 'beacon' ),
-				'desc'      => sprintf( __( 'Enter the form ID for your Beacon found <a href="%s" target="_blank">here</a>', 'beacon' ), 'https://secure.helpscout.net/settings/beacons/' ),
+				'name'      => __( 'Form ID', 'beacon-for-helpscout' ),
+				'desc'      => sprintf( __( 'Enter the form ID for your Beacon found <a href="%s" target="_blank">here</a>', 'beacon-for-helpscout' ), 'https://secure.helpscout.net/settings/beacons/' ),
 				'type'      => 'text'
 			)
 		) ),
 		'customize' => apply_filters( 'beacon_settings_customize', array(
 			array(
 				'id'        => 'default_color',
-				'name'      => __( 'Default Color', 'beacon' ),
-				'desc'      => __( 'Specify the default color for Beacon elements', 'beacon' ),
+				'name'      => __( 'Default Color', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Specify the default color for Beacon elements', 'beacon-for-helpscout' ),
 				'type'      => 'color',
 				'std'       => '#31A8D9'
 			),
 			array(
 				'id'        => 'icon',
-				'name'      => __( 'Icon', 'beacon' ),
-				'desc'      => __( 'Select the icon for the popup button', 'beacon' ),
+				'name'      => __( 'Icon', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Select the icon for the popup button', 'beacon-for-helpscout' ),
 				'type'      => 'select',
 				'options'   => array(
-					'bouy'      => __( 'Bouy', 'beacon' ),
-					'beacon'    => __( 'Beacon', 'beacon' ),
-					'message'   => __( 'Message', 'beacon' ),
-					'question'  => __( 'Question', 'beacon' ),
-					'search'    => __( 'Search', 'beacon' )
+					'bouy'      => __( 'Bouy', 'beacon-for-helpscout' ),
+					'beacon-for-helpscout'    => __( 'Beacon', 'beacon-for-helpscout' ),
+					'message'   => __( 'Message', 'beacon-for-helpscout' ),
+					'question'  => __( 'Question', 'beacon-for-helpscout' ),
+					'search'    => __( 'Search', 'beacon-for-helpscout' )
 				),
 				'std'       => 'bouy'
 			),
 			array(
 				'id'        => 'top_articles',
-				'name'      => __( 'Display Top Articles', 'beacon' ),
-				'desc'      => __( 'Check to display top articles automatically instead of just the search box', 'beacon' ),
+				'name'      => __( 'Display Top Articles', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Check to display top articles automatically instead of just the search box', 'beacon-for-helpscout' ),
 				'type'      => 'checkbox'
 			),
 			array(
 				'id'        => 'attachments',
-				'name'      => __( 'Enable Attachments', 'beacon' ),
-				'desc'      => __( 'Check to enable attachments in the contact form', 'beacon' ),
+				'name'      => __( 'Enable Attachments', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Check to enable attachments in the contact form', 'beacon-for-helpscout' ),
 				'type'      => 'checkbox',
 				'std'       => true
 			),
 			array(
 				'id'        => 'instructions',
-				'name'      => __( 'Instructions', 'beacon' ),
-				'desc'      => __( 'Enter custom text to display on top of the contact form', 'beacon' ),
+				'name'      => __( 'Instructions', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter custom text to display on top of the contact form', 'beacon-for-helpscout' ),
 				'type'      => 'text'
 			),
 		) ),
 		'strings' => apply_filters( 'beacon_settings_strings', array(
 			array(
 				'id'        => 'search_label',
-				'name'      => __( 'Search Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Search label', 'beacon' ),
+				'name'      => __( 'Search Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Search label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'What can we help you with?', 'beacon' )
+				'std'       => __( 'What can we help you with?', 'beacon-for-helpscout' )
 			),
 			array(
 				'id'        => 'search_error_label',
-				'name'      => __( 'Search Error Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Search error label', 'beacon' ),
+				'name'      => __( 'Search Error Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Search error label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Your search timed out. Please double-check your internet connection and try again.', 'beacon' )
+				'std'       => __( 'Your search timed out. Please double-check your internet connection and try again.', 'beacon-for-helpscout' )
 			),
 			array(
 				'id'        => 'no_results_label',
-				'name'      => __( 'No Results Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the No Results label', 'beacon' ),
+				'name'      => __( 'No Results Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the No Results label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'No results found for', 'beacon' ),
+				'std'       => __( 'No results found for', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'contact_label',
-				'name'      => __( 'Contact Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Contact label', 'beacon' ),
+				'name'      => __( 'Contact Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Contact label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Send a Message', 'beacon' ),
+				'std'       => __( 'Send a Message', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'attach_file_label',
-				'name'      => __( 'Attach File Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Attach File label', 'beacon' ),
+				'name'      => __( 'Attach File Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Attach File label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Attach a file', 'beacon' ),
+				'std'       => __( 'Attach a file', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'attach_file_error',
-				'name'      => __( 'Attach File Error', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Attach File error', 'beacon' ),
+				'name'      => __( 'Attach File Error', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Attach File error', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'The maximum file size is 10mb', 'beacon' ),
+				'std'       => __( 'The maximum file size is 10mb', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'name_label',
-				'name'      => __( 'Name Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Name label', 'beacon' ),
+				'name'      => __( 'Name Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Name label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Your Name', 'beacon' ),
+				'std'       => __( 'Your Name', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'name_error',
-				'name'      => __( 'Name Error Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Name error label', 'beacon' ),
+				'name'      => __( 'Name Error Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Name error label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Please enter your name', 'beacon' ),
+				'std'       => __( 'Please enter your name', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'email_label',
-				'name'      => __( 'Email Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Email label', 'beacon' ),
+				'name'      => __( 'Email Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Email label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Email address', 'beacon' ),
+				'std'       => __( 'Email address', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'email_error',
-				'name'      => __( 'Email Error Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Email error label', 'beacon' ),
+				'name'      => __( 'Email Error Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Email error label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Please enter a valid email address', 'beacon' ),
+				'std'       => __( 'Please enter a valid email address', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'subject_label',
-				'name'      => __( 'Subject Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Subject label', 'beacon' ),
+				'name'      => __( 'Subject Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Subject label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Subject', 'beacon' ),
+				'std'       => __( 'Subject', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'subject_error',
-				'name'      => __( 'Subject Error Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Subject error label', 'beacon' ),
+				'name'      => __( 'Subject Error Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Subject error label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Please enter a subject', 'beacon' ),
+				'std'       => __( 'Please enter a subject', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'message_label',
-				'name'      => __( 'Message Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Message label', 'beacon' ),
+				'name'      => __( 'Message Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Message label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'How can we help you?', 'beacon' ),
+				'std'       => __( 'How can we help you?', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'message_error',
-				'name'      => __( 'Message Error Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Message error label', 'beacon' ),
+				'name'      => __( 'Message Error Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Message error label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Please enter a message', 'beacon' ),
+				'std'       => __( 'Please enter a message', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'success_label',
-				'name'      => __( 'Contact Success Label', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Contact success label', 'beacon' ),
+				'name'      => __( 'Contact Success Label', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Contact success label', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Message sent!', 'beacon' ),
+				'std'       => __( 'Message sent!', 'beacon-for-helpscout' ),
 			),
 			array(
 				'id'        => 'success_desc',
-				'name'      => __( 'Contact Success Description', 'beacon' ),
-				'desc'      => __( 'Enter the text for the Contact success description', 'beacon' ),
+				'name'      => __( 'Contact Success Description', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Enter the text for the Contact success description', 'beacon-for-helpscout' ),
 				'type'      => 'text',
-				'std'       => __( 'Thanks for reaching out! Someone from our team will get back to you soon.', 'beacon' )
+				'std'       => __( 'Thanks for reaching out! Someone from our team will get back to you soon.', 'beacon-for-helpscout' )
 			)
 		) )
 	);
@@ -379,7 +379,7 @@ function beacon_settings_sanitize( $input = array() ) {
 	// Merge our new settings with the existing
 	$input = array_merge( $beacon_options, $input );
 
-	add_settings_error( 'beacon-notices', '', __( 'Settings updated.', 'beacon' ), 'updated' );
+	add_settings_error( 'beacon-notices', '', __( 'Settings updated.', 'beacon-for-helpscout' ), 'updated' );
 
 	return $input;
 }
@@ -706,7 +706,7 @@ function beacon_upload_callback( $args ) {
 	$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
 
 	$html  = '<input type="text" class="' . $size . '-text" id="beacon_settings[' . $args['id'] . ']" name="beacon_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '" />&nbsp;';
-	$html .= '<span><input type="button" class="beacon_settings_upload_button button-secondary" value="' . __( 'Upload File', 'beacon' ) . '" /></span>&nbsp;';
+	$html .= '<span><input type="button" class="beacon_settings_upload_button button-secondary" value="' . __( 'Upload File', 'beacon-for-helpscout' ) . '" /></span>&nbsp;';
 	$html .= '<label for="beacon_settings[' . $args['id'] . ']">' . $args['desc'] . '</label>';
 
 	echo $html;
@@ -733,5 +733,5 @@ function beacon_hook_callback( $args ) {
  * @return      void
  */
 function beacon_missing_callback( $args ) {
-	printf( __( 'The callback function used for the <strong>%s</strong> setting is missing.', 'beacon' ), $args['id'] );
+	printf( __( 'The callback function used for the <strong>%s</strong> setting is missing.', 'beacon-for-helpscout' ), $args['id'] );
 }

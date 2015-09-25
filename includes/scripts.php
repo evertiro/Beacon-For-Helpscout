@@ -40,8 +40,8 @@ function beacon_admin_scripts( $hook ) {
 	wp_enqueue_style( 'beacon', BEACON_URL . 'assets/css/admin' . $suffix . '.css', array(), BEACON_VER );
 	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/admin' . $suffix . '.js', array( 'jquery' ), BEACON_VER );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
-		'image_media_button'    => __( 'Insert Image', 'beacon' ),
-		'image_media_title'     => __( 'Select Image', 'beacon' ),
+		'image_media_button'    => __( 'Insert Image', 'beacon-for-helpscout' ),
+		'image_media_title'     => __( 'Select Image', 'beacon-for-helpscout' ),
 	) );
 }
 add_action( 'admin_enqueue_scripts', 'beacon_admin_scripts', 100 );
@@ -68,22 +68,22 @@ function beacon_scripts() {
 		'top_articles'      => beacon_get_option( 'top_articles', false ) ? true : false,
 		'attachment'        => beacon_get_option( 'attachments', false ) ? true : false,
 		'instructions'      => strip_tags( beacon_get_option( 'instructions', '' ) ),
-		'search_label'      => strip_tags( beacon_get_option( 'search_label', __( 'What can we help you with?', 'beacon' ) ) ),
-		'search_error_label'=> strip_tags( beacon_get_option( 'search_error_label', __( 'Your search timed out. Please double-check your internet connection and try again.', 'beacon' ) ) ),
-		'no_results_label'  => strip_tags( beacon_get_option( 'no_results_label', __( 'No results found for', 'beacon' ) ) ),
-		'contact_label'     => strip_tags( beacon_get_option( 'contact_label', __( 'Send a Message', 'beacon' ) ) ),
-		'attach_file_label' => strip_tags( beacon_get_option( 'attach_file_label', __( 'Attach a file', 'beacon' ) ) ),
-		'attach_file_error' => strip_tags( beacon_get_option( 'attach_file_error', __( 'The maximum file size is 10mb', 'beacon' ) ) ),
-		'name_label'        => strip_tags( beacon_get_option( 'name_label', __( 'Your Name', 'beacon' ) ) ),
-		'name_error'        => strip_tags( beacon_get_option( 'name_error', __( 'Please enter your name', 'beacon' ) ) ),
-		'email_label'       => strip_tags( beacon_get_option( 'email_label', __( 'Email address', 'beacon' ) ) ),
-		'email_error'       => strip_tags( beacon_get_option( 'email_error', __( 'Please enter a valid email address', 'beacon' ) ) ),
-		'subject_label'     => strip_tags( beacon_get_option( 'subject_label', __( 'Subject', 'beacon' ) ) ),
-		'subject_error'     => strip_tags( beacon_get_option( 'subject_error', __( 'Please enter a subject', 'beacon' ) ) ),
-		'message_label'     => strip_tags( beacon_get_option( 'message_label', __( 'How can we help you?', 'beacon' ) ) ),
-		'message_error'     => strip_tags( beacon_get_option( 'message_error', __( 'Please enter a message', 'beacon' ) ) ),
-		'success_label'     => strip_tags( beacon_get_option( 'success_label', __( 'Message sent!', 'beacon' ) ) ),
-		'success_desc'      => strip_tags( beacon_get_option( 'success_desc', __( 'Thanks for reaching out! Someone from our team will get back to you soon.', 'beacon' ) ) )
+		'search_label'      => strip_tags( beacon_get_option( 'search_label', __( 'What can we help you with?', 'beacon-for-helpscout' ) ) ),
+		'search_error_label'=> strip_tags( beacon_get_option( 'search_error_label', __( 'Your search timed out. Please double-check your internet connection and try again.', 'beacon-for-helpscout' ) ) ),
+		'no_results_label'  => strip_tags( beacon_get_option( 'no_results_label', __( 'No results found for', 'beacon-for-helpscout' ) ) ),
+		'contact_label'     => strip_tags( beacon_get_option( 'contact_label', __( 'Send a Message', 'beacon-for-helpscout' ) ) ),
+		'attach_file_label' => strip_tags( beacon_get_option( 'attach_file_label', __( 'Attach a file', 'beacon-for-helpscout' ) ) ),
+		'attach_file_error' => strip_tags( beacon_get_option( 'attach_file_error', __( 'The maximum file size is 10mb', 'beacon-for-helpscout' ) ) ),
+		'name_label'        => strip_tags( beacon_get_option( 'name_label', __( 'Your Name', 'beacon-for-helpscout' ) ) ),
+		'name_error'        => strip_tags( beacon_get_option( 'name_error', __( 'Please enter your name', 'beacon-for-helpscout' ) ) ),
+		'email_label'       => strip_tags( beacon_get_option( 'email_label', __( 'Email address', 'beacon-for-helpscout' ) ) ),
+		'email_error'       => strip_tags( beacon_get_option( 'email_error', __( 'Please enter a valid email address', 'beacon-for-helpscout' ) ) ),
+		'subject_label'     => strip_tags( beacon_get_option( 'subject_label', __( 'Subject', 'beacon-for-helpscout' ) ) ),
+		'subject_error'     => strip_tags( beacon_get_option( 'subject_error', __( 'Please enter a subject', 'beacon-for-helpscout' ) ) ),
+		'message_label'     => strip_tags( beacon_get_option( 'message_label', __( 'How can we help you?', 'beacon-for-helpscout' ) ) ),
+		'message_error'     => strip_tags( beacon_get_option( 'message_error', __( 'Please enter a message', 'beacon-for-helpscout' ) ) ),
+		'success_label'     => strip_tags( beacon_get_option( 'success_label', __( 'Message sent!', 'beacon-for-helpscout' ) ) ),
+		'success_desc'      => strip_tags( beacon_get_option( 'success_desc', __( 'Thanks for reaching out! Someone from our team will get back to you soon.', 'beacon-for-helpscout' ) ) )
 	) );
 }
 add_action( 'wp_enqueue_scripts', 'beacon_scripts' );
