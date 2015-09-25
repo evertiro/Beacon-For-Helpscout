@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:     Beacon
- * Plugin URI:      https://section214.com/products/beacon
+ * Plugin Name:     Beacon For HelpScout
+ * Plugin URI:      http://wordpress.org/plugins/beacon-for-helpscout
  * Description:     Integrate Beacon from Help Scout into your WordPress site
  * Version:         1.0.0
  * Author:          Daniel J Griffiths
