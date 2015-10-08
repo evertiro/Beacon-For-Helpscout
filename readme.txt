@@ -5,7 +5,7 @@ Contributors: section214
 Tags: beacon, helpscout, help scout
 Requires at least: 3.0
 Tested up to: 4.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 Integrate Help Scout Beacons with your WordPress site... without dealing with messy JavaScript!
 
@@ -29,6 +29,11 @@ The new Beacon feature from Help Scout is AWESOME! But... customizing it if you 
 = None yet! =
 
 == Changelog ==
+
+= 1.0.2, 10/8/2015 =
+
+* Fix bug with saving settings
+* Fix bug with displaying contact form when disabled
 
 = 1.0.1, 9/25/2015 =
 
