@@ -347,7 +347,7 @@ function beacon_settings_sanitize( $input = array() ) {
 	parse_str( $_POST['_wp_http_referer'], $referrer );
 
 	$settings   = beacon_get_registered_settings();
-	$tab        = isset( $referrer['tab'] ) ? $referrer['tab'] : 'settings';
+	$tab        = isset( $referrer['tab'] ) ? $referrer['tab'] : 'general';
 
 	$input = $input ? $input : array();
 	$input = apply_filters( 'beacon_settings_' . $tab . '_sanitize', $input );
