@@ -2,6 +2,8 @@
 jQuery(document).ready(function ($) {
     'use strict';
 
+    var contact, docs;
+
     // Help Scout Beacon
     ! function(e, o, n) {
         window.HSCW = o, window.HS = n, n.beacon = n.beacon || {};

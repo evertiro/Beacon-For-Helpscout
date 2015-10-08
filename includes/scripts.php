@@ -59,8 +59,8 @@ function beacon_scripts() {
 
 	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/beacon' . $suffix . '.js', array( 'jquery' ), BEACON_VER, true );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
-		'enable_docs'       => beacon_get_option( 'enable_docs', false ) ? '!0' : '!1',
-		'enable_contact'    => beacon_get_option( 'enable_contact', false ) ? '!0' : '!1',
+		'enable_docs'       => beacon_get_option( 'enable_docs', false ),
+		'enable_contact'    => beacon_get_option( 'enable_contact', false ),
 		'subdomain'         => beacon_get_option( 'helpscout_url', '' ),
 		'form_id'           => beacon_get_option( 'form_id', '' ),
 		'default_color'     => beacon_get_option( 'default_color', '#31A8D9' ),
