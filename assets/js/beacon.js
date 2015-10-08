@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
         }, o.config = {
             docs: {
                 enabled: beacon_vars.enable_docs,
-                baseUrl: "http://" + beacon_vars.subdomain + ".helpscoutdocs.com/"
+                baseUrl: "https://" + beacon_vars.subdomain + ".helpscoutdocs.com/"
             },
             contact: {
                 enabled: beacon_vars.enable_contact,
