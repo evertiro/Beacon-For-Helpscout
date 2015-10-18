@@ -27,6 +27,7 @@ jQuery(document).ready(function ($) {
     }(document, window.HSCW || {}, window.HS || {});
 
     HS.beacon.config({
+    	poweredBy: beacon_vars.powered_by,
         color: beacon_vars.default_color,
         icon: beacon_vars.icon,
         topArticles: beacon_vars.top_articles,

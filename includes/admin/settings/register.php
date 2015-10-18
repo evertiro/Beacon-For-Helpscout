@@ -87,7 +87,7 @@ function beacon_get_registered_settings() {
 				'type'      => 'select',
 				'options'   => array(
 					'bouy'      => __( 'Bouy', 'beacon-for-helpscout' ),
-					'beacon-for-helpscout'    => __( 'Beacon', 'beacon-for-helpscout' ),
+					'beacon'    => __( 'Beacon', 'beacon-for-helpscout' ),
 					'message'   => __( 'Message', 'beacon-for-helpscout' ),
 					'question'  => __( 'Question', 'beacon-for-helpscout' ),
 					'search'    => __( 'Search', 'beacon-for-helpscout' )
@@ -106,6 +106,12 @@ function beacon_get_registered_settings() {
 				'desc'      => __( 'Check to enable attachments in the contact form', 'beacon-for-helpscout' ),
 				'type'      => 'checkbox',
 				'std'       => true
+			),
+			array(
+				'id'        => 'powered_by',
+				'name'      => __( 'Hide Powered By Text', 'beacon-for-helpscout' ),
+				'desc'      => __( 'By default, beacons display a \'Powered By Help Scout\' line on the contact form confirmation dialog. Select this to disable it.', 'beacon-for-helpscout' ),
+				'type'      => 'checkbox'
 			),
 			array(
 				'id'        => 'instructions',

@@ -67,6 +67,7 @@ function beacon_scripts() {
 		'icon'              => beacon_get_option( 'icon', 'bouy' ),
 		'top_articles'      => beacon_get_option( 'top_articles', false ) ? true : false,
 		'attachment'        => beacon_get_option( 'attachments', false ) ? true : false,
+		'powered_by'        => beacon_get_option( 'powered_by', false ) ? true : false,
 		'instructions'      => strip_tags( beacon_get_option( 'instructions', '' ) ),
 		'search_label'      => strip_tags( beacon_get_option( 'search_label', __( 'What can we help you with?', 'beacon-for-helpscout' ) ) ),
 		'search_error_label'=> strip_tags( beacon_get_option( 'search_error_label', __( 'Your search timed out. Please double-check your internet connection and try again.', 'beacon-for-helpscout' ) ) ),
