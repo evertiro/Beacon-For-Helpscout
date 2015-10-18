@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
         topArticles: beacon_vars.top_articles,
         attachment: beacon_vars.attachment,
         instructions: beacon_vars.instructions,
-        /*translation: {
+        translation: {
             searchLabel: beacon_vars.search_label,
             searchErrorLabel: beacon_vars.search_error_label,
             noResultsLabel: beacon_vars.no_results_label,
@@ -50,6 +50,6 @@ jQuery(document).ready(function ($) {
             messageError: beacon_vars.message_error,
             contactSuccessLabel: beacon_vars.success_label,
             contactSuccessDescription: beacon_vars.success_desc
-        }*/
+        }
     });
 });

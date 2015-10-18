@@ -25,7 +25,7 @@ function beacon_get_settings_tabs() {
 	$tabs['customize']  = __( 'Customize', 'beacon-for-helpscout' );
 
 	// Translation doesn't work yet!
-	//$tabs['strings']    = __( 'Text Strings', 'beacon-for-helpscout' );
+	$tabs['strings']    = __( 'Text Strings', 'beacon-for-helpscout' );
 
 	return apply_filters( 'beacon_settings_tabs', $tabs );
 }
