@@ -3,7 +3,7 @@
  * Plugin Name:     Beacon For Help Scout
  * Plugin URI:      http://wordpress.org/plugins/beacon-for-helpscout
  * Description:     Integrate Beacon from Help Scout into your WordPress site
- * Version:         1.0.3
+ * Version:         1.0.4
  * Author:          Daniel J Griffiths
  * Author URI:      https://section214.com
  * Text Domain:     beacon
@@ -66,7 +66,7 @@ if( ! class_exists( 'Beacon' ) ) {
 		 */
 		public function setup_constants() {
 			// Plugin version
-			define( 'BEACON_VER', '1.0.3' );
+			define( 'BEACON_VER', '1.0.4' );
 
 			// Plugin path
 			define( 'BEACON_DIR', plugin_dir_path( __FILE__ ) );
