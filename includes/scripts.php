@@ -59,6 +59,7 @@ function beacon_scripts() {
 
 	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/beacon' . $suffix . '.js', array( 'jquery' ), BEACON_VER, true );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
+		'modal'             => ( beacon_get_option( 'display_type', 'popover' ) == 'popover' ) ? false : true,
 		'enable_docs'       => beacon_get_option( 'enable_docs', false ),
 		'enable_contact'    => beacon_get_option( 'enable_contact', false ),
 		'subdomain'         => beacon_get_option( 'helpscout_url', '' ),

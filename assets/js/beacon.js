@@ -27,6 +27,7 @@ jQuery(document).ready(function ($) {
     }(document, window.HSCW || {}, window.HS || {});
 
     HS.beacon.config({
+    	modal: beacon_vars.modal,
     	poweredBy: beacon_vars.powered_by,
         color: beacon_vars.default_color,
         icon: beacon_vars.icon,
@@ -52,4 +53,20 @@ jQuery(document).ready(function ($) {
             contactSuccessDescription: beacon_vars.success_desc
         }
     });
+
+    if ( beacon_vars.modal == true ) {
+        HS.beacon.ready(function() {});
+
+        $('.show-beacon.menu-item a').click(function(e) {
+        	e.preventDefault();
+
+            HS.beacon.open();
+        });
+
+        $('.show-beacon').click(function(e) {
+            e.preventDefault();
+
+            HS.beacon.open();
+        });
+    }
 });

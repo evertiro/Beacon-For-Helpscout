@@ -74,6 +74,17 @@ function beacon_get_registered_settings() {
 		) ),
 		'customize' => apply_filters( 'beacon_settings_customize', array(
 			array(
+				'id'        => 'display_type',
+				'name'      => __( 'Display Type', 'beacon-for-helpscout' ),
+				'desc'      => __( 'Specify whether to display the standard beacon popover, or display beacon through a modal triggered by a link with the class \'show-beacon\'', 'beacon-for-helpscout' ),
+				'type'      => 'select',
+				'options'   => array(
+					'popover'   => __( 'Popover', 'beacon-for-helpscout' ),
+					'modal'     => __( 'Modal', 'beacon-for-helpscout' ),
+				),
+				'std'       => 'popover'
+			),
+			array(
 				'id'        => 'default_color',
 				'name'      => __( 'Default Color', 'beacon-for-helpscout' ),
 				'desc'      => __( 'Specify the default color for Beacon elements', 'beacon-for-helpscout' ),
