@@ -104,6 +104,7 @@ if( ! class_exists( 'Beacon' ) ) {
 			require_once BEACON_DIR . 'includes/admin/settings/register.php';
 
 			require_once BEACON_DIR . 'includes/scripts.php';
+			require_once BEACON_DIR . 'includes/functions.php';
 		}
 
 

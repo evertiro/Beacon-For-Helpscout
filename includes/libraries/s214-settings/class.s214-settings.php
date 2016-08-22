@@ -929,11 +929,12 @@ class S214_Settings {
 
 		$placeholder = isset( $args['placeholder'] ) ? $args['placeholder'] : '';
 		$select2     = isset( $args['select2'] ) ? ' class="s214-select2"' : '';
+        $size        = isset( $args['size'] ) ? ' style="width: ' . $args['size'] . '"' : '';
 
 		if( isset( $args['multiple'] ) && $args['multiple'] === true ) {
-			$html = '<select id="' . $this->func . '_settings[' . $args['id'] . ']" name="' . $this->func . '_settings[' . $args['id'] . '][]"' . $select2 . ' data-placeholder="' . $placeholder . '" multiple="multiple" />';
+			$html = '<select id="' . $this->func . '_settings[' . $args['id'] . ']" name="' . $this->func . '_settings[' . $args['id'] . '][]"' . $select2 . ' data-placeholder="' . $placeholder . '" multiple="multiple" ' . $size . '/>';
 		} else {
-			$html = '<select id="' . $this->func . '_settings[' . $args['id'] . ']" name="' . $this->func . '_settings[' . $args['id'] . ']"' . $select2 . ' data-placeholder="' . $placeholder . '" />';
+			$html = '<select id="' . $this->func . '_settings[' . $args['id'] . ']" name="' . $this->func . '_settings[' . $args['id'] . ']"' . $select2 . ' data-placeholder="' . $placeholder . '" ' . $size . '/>';
 		}
 
 		foreach( $args['options'] as $option => $name ) {

@@ -89,6 +89,33 @@ function beacon_settings( $settings ) {
 				'name' => __( 'Form ID', 'beacon-for-helpscout' ),
 				'desc' => sprintf( __( 'Enter the form ID for your Beacon found <a href="%s" target="_blank">here</a>', 'beacon-for-helpscout' ), 'https://secure.helpscout.net/settings/beacons/' ),
 				'type' => 'text'
+			),
+			array(
+				'id'   => 'visibility_header',
+				'name' => __( 'Visibility Settings', 'beacon-for-helpscout' ),
+				'desc' => '',
+				'type' => 'header'
+			),
+			array(
+				'id'      => 'visibility',
+				'name'    => __( 'Page Visibility', 'beacon-for-helpscout' ),
+				'desc'    => __( 'Select whether to hide or show on the below pages', 'beacon-for-helpscout' ),
+				'type'    => 'select',
+				'std'     => 'hide',
+				'options' => array(
+					'hide' => __( 'Hide', 'beacon-for-helpscout' ),
+					'show' => __( 'Show', 'beacon-for-helpscout' )
+				)
+			),
+			array(
+				'id'       => 'visibility_pages',
+				'name'     => __( 'Pages', 'beacon-for-helpscout' ),
+				'desc'     => __( 'Select the page(s) to hide or show beacon on', 'beacon-for-helpscout' ),
+				'type'     => 'select',
+				'select2'  => true,
+				'multiple' => true,
+				'size'     => '25em',
+				'options'  => beacon_get_pages()
 			)
 		) ),
 		'customize' => apply_filters( 'beacon_settings_customize', array(

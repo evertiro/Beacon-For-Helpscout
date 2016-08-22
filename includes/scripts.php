@@ -24,6 +24,7 @@ function beacon_admin_scripts( $hook ) {
 	// Use minified libraries if SCRIPT_DEBUG is turned off
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
+	wp_enqueue_style( 'beacon', BEACON_URL . 'assets/css/admin.css', array(), BEACON_VER );
 	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/admin' . $suffix . '.js', array( 'jquery' ), BEACON_VER );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
 		'image_media_button'    => __( 'Insert Image', 'beacon' ),
@@ -40,6 +41,10 @@ add_action( 'admin_enqueue_scripts', 'beacon_admin_scripts', 100 );
  * @return      void
  */
 function beacon_scripts() {
+	if( ! beacon_get_visibility() ) {
+		return;
+	}
+	
 	// Use minified libraries if SCRIPT_DEBUG is turned off
 	$suffix   = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 	$settings = beacon()->settings;
