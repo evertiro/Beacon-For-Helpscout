@@ -45,10 +45,13 @@ jQuery(document).ready(function ($) {
             nameError: beacon_vars.name_error,
             emailLabel: beacon_vars.email_label,
             emailError: beacon_vars.email_error,
+            topicLabel: beacon_vars.topic_label,
+            topicError: beacon_vars.topic_error,
             subjectLabel: beacon_vars.subject_label,
             subjectError: beacon_vars.subject_error,
             messageLabel: beacon_vars.message_label,
             messageError: beacon_vars.message_error,
+            sendLabel: beacon_vars.send_label,
             contactSuccessLabel: beacon_vars.success_label,
             contactSuccessDescription: beacon_vars.success_desc
         }

@@ -264,6 +264,13 @@ function beacon_settings( $settings ) {
 				'std'  => __( 'Please enter a message', 'beacon-for-helpscout' ),
 			),
 			array(
+				'id'   => 'send_label',
+				'name' => __( 'Send Button Label', 'beacon-for-helpscout' ),
+				'desc' => __( 'Enter the text for the Send button', 'beacon-for-helpscout' ),
+				'type' => 'text',
+				'std'  => __( 'Send', 'beacon-for-helpscout' )
+			),
+			array(
 				'id'   => 'success_label',
 				'name' => __( 'Contact Success Label', 'beacon-for-helpscout' ),
 				'desc' => __( 'Enter the text for the Contact success label', 'beacon-for-helpscout' ),

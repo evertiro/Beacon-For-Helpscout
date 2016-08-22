@@ -67,10 +67,13 @@ function beacon_scripts() {
 		'name_error'         => strip_tags( $settings->get_option( 'name_error', __( 'Please enter your name', 'beacon-for-helpscout' ) ) ),
 		'email_label'        => strip_tags( $settings->get_option( 'email_label', __( 'Email address', 'beacon-for-helpscout' ) ) ),
 		'email_error'        => strip_tags( $settings->get_option( 'email_error', __( 'Please enter a valid email address', 'beacon-for-helpscout' ) ) ),
+		'topic_label'        => strip_tags( $settings->get_option( 'topic_label', __( 'Select a topic', 'beacon-for-helpscout' ) ) ),
+		'topic_error'        => strip_tags( $settings->get_option( 'topic_error', __( 'Please select a topic from the list', 'beacon-for-helpscout' ) ) ),
 		'subject_label'      => strip_tags( $settings->get_option( 'subject_label', __( 'Subject', 'beacon-for-helpscout' ) ) ),
 		'subject_error'      => strip_tags( $settings->get_option( 'subject_error', __( 'Please enter a subject', 'beacon-for-helpscout' ) ) ),
 		'message_label'      => strip_tags( $settings->get_option( 'message_label', __( 'How can we help you?', 'beacon-for-helpscout' ) ) ),
 		'message_error'      => strip_tags( $settings->get_option( 'message_error', __( 'Please enter a message', 'beacon-for-helpscout' ) ) ),
+		'send_label'         => strip_tags( $settings->get_option( 'send_label', __( 'Send', 'beacon-for-helpscout' ) ) ),
 		'success_label'      => strip_tags( $settings->get_option( 'success_label', __( 'Message sent!', 'beacon-for-helpscout' ) ) ),
 		'success_desc'       => strip_tags( $settings->get_option( 'success_desc', __( 'Thanks for reaching out! Someone from our team will get back to you soon.', 'beacon-for-helpscout' ) ) )
 	) );
