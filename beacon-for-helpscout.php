@@ -133,21 +133,21 @@ if( ! class_exists( 'Beacon' ) ) {
 
 			// Traditional WordPress plugin locale filter
 			$locale = apply_filters( 'plugin_locale', get_locale(), '' );
-			$mofile = sprintf( '%1$s-%2$s.mo', 'beacon-for-help-scout', $locale );
+			$mofile = sprintf( '%1$s-%2$s.mo', 'beacon-for-helpscout', $locale );
 
 			// Setup paths to current locale file
 			$mofile_local  = $lang_dir . $mofile;
-			$mofile_global = WP_LANG_DIR . '/beacon-for-help-scout/' . $mofile;
+			$mofile_global = WP_LANG_DIR . '/beacon-for-helpscout/' . $mofile;
 
 			if( file_exists( $mofile_global ) ) {
-				// Look in global /wp-content/languages/beacon-for-help-scout/ folder
-				load_textdomain( 'beacon-for-help-scout', $mofile_global );
+				// Look in global /wp-content/languages/beacon-for-helpscout/ folder
+				load_textdomain( 'beacon-for-helpscout', $mofile_global );
 			} elseif( file_exists( $mofile_local ) ) {
-				// Look in local /wp-content/plugins/beacon-for-help-scout/languages/ folder
-				load_textdomain( 'beacon-for-help-scout', $mofile_local );
+				// Look in local /wp-content/plugins/beacon-for-helpscout/languages/ folder
+				load_textdomain( 'beacon-for-helpscout', $mofile_local );
 			} else {
 				// Load the default language files
-				load_plugin_textdomain( 'beacon-for-help-scout', false, $lang_dir );
+				load_plugin_textdomain( 'beacon-for-helpscout', false, $lang_dir );
 			}
 		}
 	}
