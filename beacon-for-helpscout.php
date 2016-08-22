@@ -38,6 +38,13 @@ if( ! class_exists( 'Beacon' ) ) {
 
 
 		/**
+		 * @var         object $settings The Beacon settings object
+		 * @since       1.0.0
+		 */
+		public $settings;
+
+
+		/**
 		 * Get active instance
 		 *
 		 * @access      public
@@ -87,17 +94,16 @@ if( ! class_exists( 'Beacon' ) ) {
 		private function includes() {
 			global $beacon_options;
 
-            require_once BEACON_DIR . 'includes/admin/settings/register.php';
-            $beacon_options = beacon_get_settings();
+			if( ! class_exists( 'S214_Settings' ) ) {
+				require_once BEACON_DIR . 'includes/libraries/s214-settings/class.s214-settings.php';
+			}
 
-            require_once BEACON_DIR . 'includes/scripts.php';
-            require_once BEACON_DIR . 'includes/functions.php';
+			$this->settings = new S214_Settings( 'beacon', 'general' );
+			$beacon_options = $this->settings->get_settings();
 
-            if( is_admin() ) {
-            	require_once BEACON_DIR . 'includes/admin/actions.php';
-                require_once BEACON_DIR . 'includes/admin/pages.php';
-                require_once BEACON_DIR . 'includes/admin/settings/display.php';
-            }
+			require_once BEACON_DIR . 'includes/admin/settings/register.php';
+
+			require_once BEACON_DIR . 'includes/scripts.php';
 		}
 
 
@@ -127,21 +133,21 @@ if( ! class_exists( 'Beacon' ) ) {
 
 			// Traditional WordPress plugin locale filter
 			$locale = apply_filters( 'plugin_locale', get_locale(), '' );
-			$mofile = sprintf( '%1$s-%2$s.mo', 'beacon-for-helpscout', $locale );
+			$mofile = sprintf( '%1$s-%2$s.mo', 'beacon-for-help-scout', $locale );
 
 			// Setup paths to current locale file
-			$mofile_local   = $lang_dir . $mofile;
-			$mofile_global  = WP_LANG_DIR . '/beacon/' . $mofile;
+			$mofile_local  = $lang_dir . $mofile;
+			$mofile_global = WP_LANG_DIR . '/beacon-for-help-scout/' . $mofile;
 
 			if( file_exists( $mofile_global ) ) {
-				// Look in global /wp-content/languages/beacon/ folder
-				load_textdomain( 'beacon-for-helpscout', $mofile_global );
+				// Look in global /wp-content/languages/beacon-for-help-scout/ folder
+				load_textdomain( 'beacon-for-help-scout', $mofile_global );
 			} elseif( file_exists( $mofile_local ) ) {
-				// Look in local /wp-content/plugins/beacon/languages/ folder
-				load_textdomain( 'beacon-for-helpscout', $mofile_local );
+				// Look in local /wp-content/plugins/beacon-for-help-scout/languages/ folder
+				load_textdomain( 'beacon-for-help-scout', $mofile_local );
 			} else {
 				// Load the default language files
-				load_plugin_textdomain( 'beacon-for-helpscout', false, $lang_dir );
+				load_plugin_textdomain( 'beacon-for-help-scout', false, $lang_dir );
 			}
 		}
 	}
@@ -155,7 +161,7 @@ if( ! class_exists( 'Beacon' ) ) {
  * @since       1.0.0
  * @return      Beacon The one true Beacon
  */
-function beacon_for_helpscout() {
+function beacon() {
 	return Beacon::instance();
 }
-add_action( 'plugins_loaded', 'beacon_for_helpscout' );
+add_action( 'plugins_loaded', 'beacon' );
