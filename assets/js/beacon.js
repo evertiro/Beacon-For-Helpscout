@@ -57,7 +57,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    if ( beacon_vars.modal === true ) {
+    if ( beacon_vars.modal === 'true' ) {
         $('.show-beacon.menu-item a').click(function(e) {
         	e.preventDefault();
 

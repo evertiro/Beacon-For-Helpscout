@@ -42,7 +42,7 @@ function beacon_scripts() {
 	wp_enqueue_style( 'beacon', BEACON_URL . 'assets/css/beacon.css', array(), BEACON_VER );
 	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/beacon.js', array( 'jquery' ), BEACON_VER, true );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
-		'modal'              => ( $settings->get_option( 'display_type', 'popover' ) == 'popover' ) ? false : true,
+		'modal'              => ( $settings->get_option( 'display_type', 'popover' ) == 'popover' ) ? 'false' : 'true',
 		'enable_docs'        => $settings->get_option( 'enable_docs', false ),
 		'enable_contact'     => $settings->get_option( 'enable_contact', false ),
 		'subdomain'          => $settings->get_option( 'helpscout_url', '' ),
