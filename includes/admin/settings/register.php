@@ -8,7 +8,7 @@
 
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -26,7 +26,7 @@ function beacon_add_menu( $menu ) {
 	$menu['page_title'] = __( 'Beacon For Help Scout Settings', 'beacon-for-helpscout' );
 	$menu['show_title'] = true;
 	$menu['menu_title'] = __( 'Beacon', 'beacon-for-helpscout' );
-	$menu['capability'] = 'manage_options';                             // The minimum capability required to access the settings panel. Defaults to 'manage_options'.
+	$menu['capability'] = 'manage_options';
 
 	return $menu;
 }
@@ -149,6 +149,17 @@ function beacon_settings( $settings ) {
 					'message'  => __( 'Message', 'beacon-for-helpscout' ),
 					'question' => __( 'Question', 'beacon-for-helpscout' ),
 					'search'   => __( 'Search', 'beacon-for-helpscout' )
+				)
+			),
+			array(
+				'id'      => 'position',
+				'name'    => __( 'Position', 'beacon-for-helpscout' ),
+				'desc'    => __( 'Specify the location for the popup button', 'beacon-for-helpscout' ),
+				'type'    => 'select',
+				'std'     => 'br',
+				'options' => array(
+					'br' => __( 'Bottom/Right', 'beacon-for-helpscout' ),
+					'bl' => __( 'Bottom/Left', 'beacon-for-helpscout' )
 				)
 			),
 			array(

@@ -8,7 +8,7 @@
 
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -25,7 +25,7 @@ if( ! defined( 'ABSPATH' ) ) {
 function beacon_get_pages( $force = false ) {
 	$pages_options = array( '' => '' ); // Blank option
 
-	if( ( ! isset( $_GET['page'] ) || 'beacon-settings' != $_GET['page'] ) && ! $force ) {
+	if ( ( ! isset( $_GET['page'] ) || 'beacon-settings' != $_GET['page'] ) && ! $force ) {
 		return $pages_options;
 	}
 
@@ -51,13 +51,13 @@ function beacon_get_visibility() {
 	$visibility = beacon()->settings->get_option( 'visibility', false );
 	$pages      = beacon()->settings->get_option( 'visibility_pages', false );
 
-	if( $visibility && $pages ) {
-		if( is_page() ) {
+	if ( $visibility && $pages ) {
+		if ( is_page() ) {
 			global $post;
 
-			if( isset( $post->ID ) && in_array( $post->ID, $pages ) && $visibility == 'hide' ) {
+			if ( isset( $post->ID ) && in_array( $post->ID, $pages ) && $visibility == 'hide' ) {
 				$visible = false;
-			} elseif( isset( $post->ID ) && ! in_array( $post->ID, $pages ) && $visibility == 'show' ) {
+			} elseif ( isset( $post->ID ) && ! in_array( $post->ID, $pages ) && $visibility == 'show' ) {
 				$visible = false;
 			}
 		}

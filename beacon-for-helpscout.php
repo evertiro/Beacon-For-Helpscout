@@ -14,12 +14,12 @@
 
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 
-if( ! class_exists( 'Beacon' ) ) {
+if ( ! class_exists( 'Beacon' ) ) {
 
 
 	/**
@@ -52,12 +52,11 @@ if( ! class_exists( 'Beacon' ) ) {
 		 * @return      self::$instance The one true Beacon
 		 */
 		public static function instance() {
-			if( ! self::$instance ) {
+			if ( ! self::$instance ) {
 				self::$instance = new Beacon();
 				self::$instance->setup_constants();
 				self::$instance->load_textdomain();
 				self::$instance->includes();
-				self::$instance->hooks();
 			}
 
 			return self::$instance;
@@ -94,29 +93,16 @@ if( ! class_exists( 'Beacon' ) ) {
 		private function includes() {
 			global $beacon_options;
 
-			if( ! class_exists( 'S214_Settings' ) ) {
-				require_once BEACON_DIR . 'includes/libraries/s214-settings/class.s214-settings.php';
+			if ( ! class_exists( 'S214_Settings' ) ) {
+				require_once BEACON_DIR . 'includes/libraries/s214-settings/source/class.s214-settings.php';
 			}
 
 			$this->settings = new S214_Settings( 'beacon', 'general' );
 			$beacon_options = $this->settings->get_settings();
 
-			require_once BEACON_DIR . 'includes/admin/settings/register.php';
-
 			require_once BEACON_DIR . 'includes/scripts.php';
 			require_once BEACON_DIR . 'includes/functions.php';
-		}
-
-
-		/**
-		 * Run action and filter hooks
-		 *
-		 * @access      private
-		 * @since       1.0.0
-		 * @return      void
-		 */
-		private function hooks() {
-
+			require_once BEACON_DIR . 'includes/admin/settings/register.php';
 		}
 
 
@@ -130,7 +116,7 @@ if( ! class_exists( 'Beacon' ) ) {
 		public function load_textdomain() {
 			// Set filter for language directory
 			$lang_dir = dirname( plugin_basename( __FILE__ ) ) . '/languages/';
-			$lang_dir = apply_filters( 'beacon_language_directory', $lang_dir );
+			$lang_dir = apply_filters( 'beacon_for_helpscout_language_directory', $lang_dir );
 
 			// Traditional WordPress plugin locale filter
 			$locale = apply_filters( 'plugin_locale', get_locale(), '' );
@@ -140,10 +126,10 @@ if( ! class_exists( 'Beacon' ) ) {
 			$mofile_local  = $lang_dir . $mofile;
 			$mofile_global = WP_LANG_DIR . '/beacon-for-helpscout/' . $mofile;
 
-			if( file_exists( $mofile_global ) ) {
+			if ( file_exists( $mofile_global ) ) {
 				// Look in global /wp-content/languages/beacon-for-helpscout/ folder
 				load_textdomain( 'beacon-for-helpscout', $mofile_global );
-			} elseif( file_exists( $mofile_local ) ) {
+			} elseif ( file_exists( $mofile_local ) ) {
 				// Look in local /wp-content/plugins/beacon-for-helpscout/languages/ folder
 				load_textdomain( 'beacon-for-helpscout', $mofile_local );
 			} else {

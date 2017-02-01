@@ -1,0 +1,9 @@
+#hs-beacon.beacon-bottom-left iframe:first-child {
+    left: 18px;
+    right: 0;
+}
+
+#hs-beacon.beacon-bottom-left iframe:nth-child(2) {
+    left: 15px;
+    right: 0;
+}

@@ -8,7 +8,7 @@
 
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -21,13 +21,10 @@ if( ! defined( 'ABSPATH' ) ) {
  * @return      void
  */
 function beacon_admin_scripts( $hook ) {
-	// Use minified libraries if SCRIPT_DEBUG is turned off
-	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/admin' . $suffix . '.js', array( 'jquery' ), BEACON_VER );
+	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/admin.js', array( 'jquery' ), BEACON_VER );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
-		'image_media_button'    => __( 'Insert Image', 'beacon' ),
-		'image_media_title'     => __( 'Select Image', 'beacon' ),
+		'image_media_button' => __( 'Insert Image', 'beacon' ),
+		'image_media_title'  => __( 'Select Image', 'beacon' ),
 	) );
 }
 add_action( 'admin_enqueue_scripts', 'beacon_admin_scripts', 100 );
@@ -40,15 +37,14 @@ add_action( 'admin_enqueue_scripts', 'beacon_admin_scripts', 100 );
  * @return      void
  */
 function beacon_scripts() {
-	if( ! beacon_get_visibility() ) {
+	if ( ! beacon_get_visibility() ) {
 		return;
 	}
 
-	// Use minified libraries if SCRIPT_DEBUG is turned off
-	$suffix   = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 	$settings = beacon()->settings;
 
-	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/beacon' . $suffix . '.js', array( 'jquery' ), BEACON_VER, true );
+	wp_enqueue_style( 'beacon', BEACON_URL . 'assets/css/beacon.css', array(), BEACON_VER );
+	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/beacon.js', array( 'jquery' ), BEACON_VER, true );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
 		'modal'              => ( $settings->get_option( 'display_type', 'popover' ) == 'popover' ) ? false : true,
 		'enable_docs'        => $settings->get_option( 'enable_docs', false ),
@@ -57,6 +53,7 @@ function beacon_scripts() {
 		'form_id'            => $settings->get_option( 'form_id', '' ),
 		'default_color'      => $settings->get_option( 'default_color', '#31A8D9' ),
 		'icon'               => $settings->get_option( 'icon', 'bouy' ),
+		'position'           => $settings->get_option( 'position', 'br' ),
 		'top_articles'       => $settings->get_option( 'top_articles', false ) ? true : false,
 		'attachment'         => $settings->get_option( 'attachments', false ) ? true : false,
 		'powered_by'         => $settings->get_option( 'powered_by', false ) ? true : false,

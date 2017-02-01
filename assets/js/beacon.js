@@ -57,9 +57,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    if ( beacon_vars.modal == true ) {
-        HS.beacon.ready(function() {});
-
+    if ( beacon_vars.modal === true ) {
         $('.show-beacon.menu-item a').click(function(e) {
         	e.preventDefault();
 
@@ -72,4 +70,10 @@ jQuery(document).ready(function ($) {
             HS.beacon.open();
         });
     }
+
+    HS.beacon.ready(function() {
+        if ( beacon_vars.position === 'bl' ) {
+            $('#hs-beacon').addClass('beacon-bottom-left');
+        }
+    });
 });
