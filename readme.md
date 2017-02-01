@@ -4,7 +4,6 @@
 ![Total Downloads](https://img.shields.io/wordpress/plugin/dt/beacon-for-helpscout.svg)
 ![Plugin Rating](https://img.shields.io/wordpress/plugin/r/beacon-for-helpscout.svg)
 ![WordPress Compatibility](https://img.shields.io/wordpress/v/beacon-for-helpscout.svg)
-[![License](https://img.shields.io/github/license/Section214/beacon.svg)](https://github.com/section214/beacon/blob/master/LICENSE)
 
 ### Welcome to our GitHub Repository
 
