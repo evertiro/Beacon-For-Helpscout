@@ -137,6 +137,12 @@ function beacon_settings( $settings ) {
 				)
 			),
 			array(
+				'id'   => 'display_note',
+				'name' => '',
+				'desc' => sprintf( __( '%s When using the Popover display type, you can also trigger the popover through buttons with the %s, %s and %s IDs', 'beacon-for-helpscout' ), '<strong>' . __( 'Note:', 'beacon-for-helpscout' ) . '</strong>', '<code>beacon-open</code>', '<code>beacon-close</code>', '<code>beacon-toggle</code>' ),
+				'type' => 'descriptive_text'
+			),
+			array(
 				'id'   => 'default_color',
 				'name' => __( 'Default Color', 'beacon-for-helpscout' ),
 				'desc' => __( 'Specify the default color for Beacon elements', 'beacon-for-helpscout' ),

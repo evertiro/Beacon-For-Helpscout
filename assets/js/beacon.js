@@ -26,6 +26,12 @@ jQuery(document).ready(function ($) {
         c.type = "text/javascript", c.async = !0, c.src = "https://djtflbt20bdde.cloudfront.net/", r.parentNode.insertBefore(c, r)
     }(document, window.HSCW || {}, window.HS || {});
 
+    if (beacon_vars.modal === 'true') {
+        beacon_vars.modal = true;
+    } else {
+        beacon_vars.modal = false;
+    }
+
     HS.beacon.config({
     	modal: beacon_vars.modal,
     	poweredBy: beacon_vars.powered_by,
@@ -55,6 +61,19 @@ jQuery(document).ready(function ($) {
             contactSuccessLabel: beacon_vars.success_label,
             contactSuccessDescription: beacon_vars.success_desc
         }
+    });
+
+    $('#beacon-open').click(function(e) {
+        e.preventDefault();
+        HS.beacon.open();
+    });
+    $('#beacon-close').click(function(e) {
+        e.preventDefault();
+        HS.beacon.close();
+    });
+    $('#beacon-toggle').click(function(e) {
+        e.preventDefault();
+        HS.beacon.toggle();
     });
 
     if ( beacon_vars.modal === 'true' ) {
