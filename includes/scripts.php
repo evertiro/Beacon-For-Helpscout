@@ -21,11 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return      void
  */
 function beacon_admin_scripts( $hook ) {
-	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/admin.js', array( 'jquery' ), BEACON_VER );
-	wp_localize_script( 'beacon', 'beacon_vars', array(
-		'image_media_button' => __( 'Insert Image', 'beacon' ),
-		'image_media_title'  => __( 'Select Image', 'beacon' ),
-	) );
+	wp_enqueue_script( 'beacon-admin', BEACON_URL . 'assets/js/admin.js', array( 'jquery' ), BEACON_VER );
 }
 add_action( 'admin_enqueue_scripts', 'beacon_admin_scripts', 100 );
 
@@ -80,3 +76,4 @@ function beacon_scripts() {
 	) );
 }
 add_action( 'wp_enqueue_scripts', 'beacon_scripts' );
+add_action( 'admin_enqueue_scripts', 'beacon_scripts' );

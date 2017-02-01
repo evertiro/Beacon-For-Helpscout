@@ -116,6 +116,12 @@ function beacon_settings( $settings ) {
 				'multiple' => true,
 				'size'     => '25em',
 				'options'  => beacon_get_pages()
+			),
+			array(
+				'id'   => 'show_on_dashboard',
+				'name' => __( 'Show On Dashboard', 'beacon-for-helpscout' ),
+				'desc' => __( 'Specify whether or not to show beacon on the WordPress dashboard', 'beacon-for-helpscout' ),
+				'type' => 'checkbox'
 			)
 		) ),
 		'customize' => apply_filters( 'beacon_settings_customize', array(

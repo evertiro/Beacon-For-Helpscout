@@ -50,6 +50,7 @@ function beacon_get_visibility() {
 	$visible    = true;
 	$visibility = beacon()->settings->get_option( 'visibility', false );
 	$pages      = beacon()->settings->get_option( 'visibility_pages', false );
+	$dashboard  = beacon()->settings->get_option( 'show_on_dashboard', false );
 
 	if ( $visibility && $pages ) {
 		if ( is_page() ) {
@@ -61,6 +62,10 @@ function beacon_get_visibility() {
 				$visible = false;
 			}
 		}
+	}
+
+	if ( is_admin() && ! $dashboard ) {
+		$visible = false;
 	}
 
 	return $visible;

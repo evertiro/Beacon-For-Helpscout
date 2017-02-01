@@ -1,4 +1,4 @@
-/*global jQuery, document, window, wp, _wpMediaViewsL10n, file_frame, beacon_vars*/
+/*global jQuery, document*/
 jQuery(document).ready(function ($) {
     'use strict';
 
