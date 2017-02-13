@@ -70,3 +70,51 @@ function beacon_get_visibility() {
 
 	return $visible;
 }
+
+/**
+ * Turn Topic textarea setting into JSON values to send to JS
+ *
+ *
+ *
+ * @since       1.3.0
+ * @param       string $topic_settings gathered from the settings in wp_admin
+ * @return      array $topic_array JSON array of the topics to be passed to the Beacon Config
+ */
+function beacon_create_topic_array( $topic_settings ) {
+	// reset topics
+  $topic_array = array();
+  // explode the value so that each line is a new array piece
+  $topic_settings = explode("\n", $topic_settings);
+
+  // remove any unwanted white space
+  $topic_settings = array_map('trim', $topic_settings);
+
+
+  // loop through array and add to field 'choices'
+  if( is_array($topic_settings) ) {
+
+      foreach( $topic_settings as $topic ) {
+
+         // split each line on ' : '
+         $parts = explode(' : ', $topic);
+         // make sure we have 2 parts
+         if (count($parts) > 1) {
+           $value = $parts[0];
+           $label = $parts[1];
+         } else {
+           // no separator found
+           $value = $topic;
+           $label = $topic;
+         }
+
+
+          $topics[$value] = $label;
+
+      }
+
+			$topic_array = json_encode($topics);
+
+  }
+
+	return $topic_array;
+}

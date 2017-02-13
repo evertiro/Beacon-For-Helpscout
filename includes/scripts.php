@@ -54,6 +54,7 @@ function beacon_scripts() {
 		'attachment'         => $settings->get_option( 'attachments', false ) ? true : false,
 		'powered_by'         => $settings->get_option( 'powered_by', false ) ? true : false,
 		'instructions'       => strip_tags( $settings->get_option( 'instructions', '' ) ),
+		'topic_list'         => beacon_create_topic_array( strip_tags( $settings->get_option( 'topic_list', '' ) ) ),
 		'search_label'       => strip_tags( $settings->get_option( 'search_label', __( 'What can we help you with?', 'beacon-for-helpscout' ) ) ),
 		'search_error_label' => strip_tags( $settings->get_option( 'search_error_label', __( 'Your search timed out. Please double-check your internet connection and try again.', 'beacon-for-helpscout' ) ) ),
 		'no_results_label'   => strip_tags( $settings->get_option( 'no_results_label', __( 'No results found for', 'beacon-for-helpscout' ) ) ),
