@@ -29,6 +29,10 @@ The new Beacon feature from Help Scout is AWESOME! But... customizing it if you 
 = None yet! =
 
 == Changelog ==
+
+= 1.3.0 =
+* Added: Topic support
+
 = 1.2.0 =
 * Updated: Settings library
 * Improved: General cleanup
