@@ -199,6 +199,12 @@ function beacon_settings( $settings ) {
 				'desc' => __( 'Enter custom text to display on top of the contact form', 'beacon-for-helpscout' ),
 				'type' => 'text'
 			),
+			array(
+				'id'   => 'topic_list',
+				'name' => __( 'Help Scout Topics', 'beacon-for-helpscout' ),
+				'desc' => __( 'Enter Beacon Topics above. Topics must be formatted using key : value pairs. Key represents the tag that gets applied to the email in Help Scout and the Value is the label that users see on the form. (NOTE: Space on both sides of the colon is important, and new pairs must be added on a new line.)', 'beacon-for-helpscout' ),
+				'type' => 'textarea'
+			),
 		) ),
 		'strings' => apply_filters( 'beacon_settings_strings', array(
 			array(

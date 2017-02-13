@@ -32,6 +32,20 @@ jQuery(document).ready(function ($) {
         beacon_vars.modal = false;
     }
 
+    // Return the Topics as Object array
+    function return_topics(settingValue) {
+      var topic_obj = JSON.parse(settingValue),
+          topic_array = [];
+
+      for (var key in topic_obj){
+          var val = key,
+              label = topic_obj[key];
+          topic_array.push({val: val, label: label});
+      };
+
+      return topic_array;
+    };
+
     HS.beacon.config({
     	modal: beacon_vars.modal,
     	poweredBy: beacon_vars.powered_by,
@@ -60,7 +74,8 @@ jQuery(document).ready(function ($) {
             sendLabel: beacon_vars.send_label,
             contactSuccessLabel: beacon_vars.success_label,
             contactSuccessDescription: beacon_vars.success_desc
-        }
+        },
+        topics: return_topics(beacon_vars.topic_list)
     });
 
     $('#beacon-open').click(function(e) {
