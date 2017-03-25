@@ -247,6 +247,18 @@ function beacon_settings( $settings ) {
 				'type' => 'checkbox'
 			),
 			array(
+				'id'   => 'show_name',
+				'name' => __( 'Show Name Field', 'beacon-for-helpscout' ),
+				'desc' => __( 'Allow customers to enter their name manually. If this is not enabled, Help Scout will attempt to figure out their name from their email address.', 'beacon-for-helpscout' ),
+				'type' => 'checkbox'
+			),
+			array(
+				'id'   => 'show_subject',
+				'name' => __( 'Show Subject Field', 'beacon-for-helpscout' ),
+				'desc' => __( 'Allow customers to enter a subject. If this is not enabled, the subject will default to the last search value or a generic message.', 'beacon-for-helpscout' ),
+				'type' => 'checkbox'
+			),
+			array(
 				'id'   => 'show_contact_fields',
 				'name' => __( 'Show Contact Fields', 'beacon-for-helpscout' ),
 				'desc' => __( 'Beacon can pre-fill certain fields which are then hidden by default. Check this to force them to show even when pre-filled.', 'beacon-for-helpscout' ),

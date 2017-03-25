@@ -48,6 +48,8 @@ jQuery(document).ready(function ($) {
                 position: beacon_vars.position,
                 zIndex: parseInt(beacon_vars.zindex),
                 topArticles: beacon_vars.top_articles,
+                showName: beacon_vars.show_name,
+                showSubject: beacon_vars.show_subject,
                 showContactFields: beacon_vars.show_contact_fields,
                 attachment: beacon_vars.attachment,
                 instructions: beacon_vars.instructions,
