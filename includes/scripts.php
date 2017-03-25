@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function beacon_admin_scripts( $hook ) {
 	wp_enqueue_script( 'beacon-admin', BEACON_URL . 'assets/js/admin.js', array( 'jquery' ), BEACON_VER );
+	wp_enqueue_style( 'beacon-admin', BEACON_URL . 'assets/css/admin.css', array(), BEACON_VER );
 	wp_enqueue_script( 'featherlight', BEACON_URL . 'assets/js/featherlight/release/featherlight.min.js', array( 'jquery' ), '1.7.1' );
 	wp_enqueue_style( 'featherlight', BEACON_URL . 'assets/js/featherlight/release/featherlight.min.css', array(), '1.7.1' );
 }

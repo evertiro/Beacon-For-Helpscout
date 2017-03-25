@@ -37,17 +37,56 @@ add_filter( 'beacon_menu', 'beacon_add_menu' );
  * Register the settings tabs
  *
  * @since       1.1.0
- * @param       array tabs The existing settings tabs
- * @return      array tabs The updated settings tabs
+ * @param       array $tabs The existing settings tabs
+ * @return      array $tabs The updated settings tabs
  */
 function beacon_settings_tabs( $tabs ) {
 	$tabs['general']   = __( 'General', 'beacon-for-helpscout' );
 	$tabs['customize'] = __( 'Customize', 'beacon-for-helpscout' );
 	$tabs['strings']   = __( 'Text Strings', 'beacon-for-helpscout' );
+	$tabs['support']   = __( 'Support', 'beacon-for-helpscout' );
 
 	return $tabs;
 }
 add_filter( 'beacon_settings_tabs', 'beacon_settings_tabs' );
+
+
+/**
+ * Register settings sections
+ *
+ * @since       1.3.0
+ * @param       array $sections The existing settings sections
+ * @return      array $sections The updated settings sections
+ */
+function beacon_settings_sections( $sections ) {
+	$sections = array(
+		'general' => apply_filters( 'beacon_settings_sections_general', array(
+			'main'       => __( 'General Settings', 'beacon-for-helpscout' ),
+			'visibility' => __( 'Visibility', 'beacon-for-helpscout' ),
+			'appearance' => __( 'Appearance', 'beacon-for-helpscout' )
+		) ),
+		'customize' => apply_filters( 'beacon_settings_sections_customize', array() ),
+		'strings' => apply_filters( 'beacon_settings_sections_strings', array() ),
+		'support' => apply_filters( 'beacon_settings_sections_support', array() )
+	);
+
+	return $sections;
+}
+add_filter( 'beacon_registered_settings_sections', 'beacon_settings_sections' );
+
+
+/**
+ * Disable save button on unsavable tabs
+ *
+ * @since       1.3.0
+ * @return      array $tabs The updated tabs
+ */
+function beacon_define_unsavable_tabs() {
+	$tabs = array( 'support' );
+
+	return $tabs;
+}
+add_filter( 'beacon_unsavable_tabs', 'beacon_define_unsavable_tabs' );
 
 
 /**
@@ -60,134 +99,146 @@ function beacon_settings( $settings ) {
 	$beacon_settings = array(
 		// Settings
 		'general' => apply_filters( 'beacon_settings_general', array(
-			array(
-				'id'   => 'general_header',
-				'name' => __( 'General Settings', 'beacon-for-helpscout' ),
-				'desc' => '',
-				'type' => 'header'
-			),
-			array(
-				'id'   => 'enable_docs',
-				'name' => __( 'Enable Docs Search', 'beacon-for-helpscout' ),
-				'desc' => __( 'Display the docs search form in Beacon', 'beacon-for-helpscout' ),
-				'type' => 'checkbox'
-			),
-			array(
-				'id'        => 'collection',
-				'name'      => __( 'Limit To Collection', 'beacon-for-helpscout' ),
-				'desc'      => sprintf( __( 'Limit docs to a single collection by specifying a %s', 'beacon-for-helpscout' ), '<a href="#" data-featherlight="' . BEACON_URL . 'assets/img/collection-id.png">' . __( 'Collection ID', 'beacon-for-helpscout' ) . '</a>' ),
-				'type'      => 'text'
-			),
-			array(
-				'id'   => 'enable_contact',
-				'name' => __( 'Enable Contact Form', 'beacon-for-helpscout' ),
-				'desc' => __( 'Display a contact form in Beacon', 'beacon-for-helpscout' ),
-				'type' => 'checkbox'
-			),
-			array(
-				'id'   => 'helpscout_url',
-				'name' => __( 'HelpScout Subdomain', 'beacon-for-helpscout' ),
-				'desc' => sprintf( __( 'Enter the subdomain for your HelpScout Docs instance found <a href="%s" target="_blank">here</a>', 'beacon-for-helpscout' ), 'https://secure.helpscout.net/settings/docs/site' ),
-				'type' => 'text'
-			),
-			array(
-				'id'   => 'form_id',
-				'name' => __( 'Form ID', 'beacon-for-helpscout' ),
-				'desc' => sprintf( __( 'Enter the form ID for your Beacon found <a href="%s" target="_blank">here</a>', 'beacon-for-helpscout' ), 'https://secure.helpscout.net/settings/beacons/' ),
-				'type' => 'text'
-			),
-			array(
-				'id'   => 'visibility_header',
-				'name' => __( 'Visibility Settings', 'beacon-for-helpscout' ),
-				'desc' => '',
-				'type' => 'header'
-			),
-			array(
-				'id'      => 'visibility',
-				'name'    => __( 'Page Visibility', 'beacon-for-helpscout' ),
-				'desc'    => __( 'Select whether to hide or show on the below pages', 'beacon-for-helpscout' ),
-				'type'    => 'select',
-				'std'     => 'hide',
-				'options' => array(
-					'hide' => __( 'Hide', 'beacon-for-helpscout' ),
-					'show' => __( 'Show', 'beacon-for-helpscout' )
+			'main' => apply_filters( 'beacon_settings_general_main', array(
+				array(
+					'id'   => 'main_header',
+					'name' => __( 'Beacon Configuration', 'beacon-for-helpscout' ),
+					'desc' => '',
+					'type' => 'header'
+				),
+				array(
+					'id'   => 'enable_docs',
+					'name' => __( 'Enable Docs Search', 'beacon-for-helpscout' ),
+					'desc' => __( 'Display the docs search form in Beacon', 'beacon-for-helpscout' ),
+					'type' => 'checkbox'
+				),
+				array(
+					'id'   => 'collection',
+					'name' => __( 'Limit To Collection', 'beacon-for-helpscout' ),
+					'desc' => sprintf( __( 'Limit docs to a single collection by specifying a %s', 'beacon-for-helpscout' ), '<a href="#" data-featherlight="' . BEACON_URL . 'assets/img/collection-id.png">' . __( 'Collection ID', 'beacon-for-helpscout' ) . '</a>' ),
+					'type' => 'text'
+				),
+				array(
+					'id'   => 'enable_contact',
+					'name' => __( 'Enable Contact Form', 'beacon-for-helpscout' ),
+					'desc' => __( 'Display a contact form in Beacon', 'beacon-for-helpscout' ),
+					'type' => 'checkbox'
+				),
+				array(
+					'id'   => 'helpscout_url',
+					'name' => __( 'HelpScout Subdomain', 'beacon-for-helpscout' ),
+					'desc' => sprintf( __( 'Enter the subdomain for your HelpScout Docs instance found <a href="%s" target="_blank">here</a>', 'beacon-for-helpscout' ), 'https://secure.helpscout.net/settings/docs/site' ),
+					'type' => 'text'
+				),
+				array(
+					'id'   => 'form_id',
+					'name' => __( 'Form ID', 'beacon-for-helpscout' ),
+					'desc' => sprintf( __( 'Enter the form ID for your Beacon found <a href="%s" target="_blank">here</a>', 'beacon-for-helpscout' ), 'https://secure.helpscout.net/settings/beacons/' ),
+					'type' => 'text'
+				),
+			) ),
+			'visibility' => apply_filters( 'beacon_settings_general_visibility', array(
+				array(
+					'id'   => 'visibility_header',
+					'name' => __( 'Visibility Settings', 'beacon-for-helpscout' ),
+					'desc' => '',
+					'type' => 'header'
+				),
+				array(
+					'id'      => 'visibility',
+					'name'    => __( 'Page Visibility', 'beacon-for-helpscout' ),
+					'desc'    => __( 'Select whether to hide or show on the below pages', 'beacon-for-helpscout' ),
+					'type'    => 'select',
+					'std'     => 'hide',
+					'options' => array(
+						'hide' => __( 'Hide', 'beacon-for-helpscout' ),
+						'show' => __( 'Show', 'beacon-for-helpscout' )
+					)
+				),
+				array(
+					'id'       => 'visibility_pages',
+					'name'     => __( 'Pages', 'beacon-for-helpscout' ),
+					'desc'     => __( 'Select the page(s) to hide or show beacon on', 'beacon-for-helpscout' ),
+					'type'     => 'select',
+					'select2'  => true,
+					'multiple' => true,
+					'size'     => '25em',
+					'options'  => beacon_get_pages()
+				),
+				array(
+					'id'   => 'show_on_dashboard',
+					'name' => __( 'Show On Dashboard', 'beacon-for-helpscout' ),
+					'desc' => __( 'Specify whether or not to show beacon on the WordPress dashboard', 'beacon-for-helpscout' ),
+					'type' => 'checkbox'
 				)
-			),
-			array(
-				'id'       => 'visibility_pages',
-				'name'     => __( 'Pages', 'beacon-for-helpscout' ),
-				'desc'     => __( 'Select the page(s) to hide or show beacon on', 'beacon-for-helpscout' ),
-				'type'     => 'select',
-				'select2'  => true,
-				'multiple' => true,
-				'size'     => '25em',
-				'options'  => beacon_get_pages()
-			),
-			array(
-				'id'   => 'show_on_dashboard',
-				'name' => __( 'Show On Dashboard', 'beacon-for-helpscout' ),
-				'desc' => __( 'Specify whether or not to show beacon on the WordPress dashboard', 'beacon-for-helpscout' ),
-				'type' => 'checkbox'
-			)
+			) ),
+			'appearance' => apply_filters( 'beacon_settings_general_appearance', array(
+				array(
+					'id'      => 'display_type',
+					'name'    => __( 'Display Type', 'beacon-for-helpscout' ),
+					'desc'    => __( 'Specify whether to display the standard beacon popover, or display beacon through a modal triggered by a link with the class \'show-beacon\'', 'beacon-for-helpscout' ),
+					'type'    => 'select',
+					'std'     => 'popover',
+					'options' => array(
+						'popover' => __( 'Popover', 'beacon-for-helpscout' ),
+						'modal'   => __( 'Modal', 'beacon-for-helpscout' ),
+					)
+				),
+				array(
+					'id'   => 'display_note',
+					'name' => '',
+					'desc' => sprintf( __( '%s When using the Popover display type, you can also trigger the popover through buttons with the %s, %s and %s IDs', 'beacon-for-helpscout' ), '<strong>' . __( 'Note:', 'beacon-for-helpscout' ) . '</strong>', '<code>beacon-open</code>', '<code>beacon-close</code>', '<code>beacon-toggle</code>' ),
+					'type' => 'descriptive_text'
+				),
+				array(
+					'id'   => 'default_color',
+					'name' => __( 'Default Color', 'beacon-for-helpscout' ),
+					'desc' => __( 'Specify the default color for Beacon elements', 'beacon-for-helpscout' ),
+					'type' => 'color',
+					'std'  => '#31A8D9'
+				),
+				array(
+					'id'      => 'icon',
+					'name'    => __( 'Icon', 'beacon-for-helpscout' ),
+					'desc'    => __( 'Select the icon for the popup button', 'beacon-for-helpscout' ),
+					'type'    => 'select',
+					'std'     => 'bouy',
+					'options' => array(
+						'bouy'     => __( 'Bouy', 'beacon-for-helpscout' ),
+						'beacon'   => __( 'Beacon', 'beacon-for-helpscout' ),
+						'message'  => __( 'Message', 'beacon-for-helpscout' ),
+						'question' => __( 'Question', 'beacon-for-helpscout' ),
+						'search'   => __( 'Search', 'beacon-for-helpscout' )
+					)
+				),
+				array(
+					'id'      => 'position',
+					'name'    => __( 'Position', 'beacon-for-helpscout' ),
+					'desc'    => __( 'Specify the location for the popup button', 'beacon-for-helpscout' ),
+					'type'    => 'select',
+					'std'     => 'br',
+					'options' => array(
+						'br' => __( 'Bottom/Right', 'beacon-for-helpscout' ),
+						'bl' => __( 'Bottom/Left', 'beacon-for-helpscout' )
+					)
+				),
+				array(
+					'id'   => 'zindex',
+					'name' => __( 'zIndex', 'beacon-for-helpscout' ),
+					'desc' => __( 'Specify a custom z-index for Beacon', 'beacon-for-helpscout' ),
+					'type' => 'number',
+					'size' => 'small',
+					'step' => '1',
+					'std'  => '1050'
+				)
+			) )
 		) ),
 		'customize' => apply_filters( 'beacon_settings_customize', array(
 			array(
-				'id'      => 'display_type',
-				'name'    => __( 'Display Type', 'beacon-for-helpscout' ),
-				'desc'    => __( 'Specify whether to display the standard beacon popover, or display beacon through a modal triggered by a link with the class \'show-beacon\'', 'beacon-for-helpscout' ),
-				'type'    => 'select',
-				'std'     => 'popover',
-				'options' => array(
-					'popover' => __( 'Popover', 'beacon-for-helpscout' ),
-					'modal'   => __( 'Modal', 'beacon-for-helpscout' ),
-				)
-			),
-			array(
-				'id'   => 'display_note',
-				'name' => '',
-				'desc' => sprintf( __( '%s When using the Popover display type, you can also trigger the popover through buttons with the %s, %s and %s IDs', 'beacon-for-helpscout' ), '<strong>' . __( 'Note:', 'beacon-for-helpscout' ) . '</strong>', '<code>beacon-open</code>', '<code>beacon-close</code>', '<code>beacon-toggle</code>' ),
-				'type' => 'descriptive_text'
-			),
-			array(
-				'id'   => 'default_color',
-				'name' => __( 'Default Color', 'beacon-for-helpscout' ),
-				'desc' => __( 'Specify the default color for Beacon elements', 'beacon-for-helpscout' ),
-				'type' => 'color',
-				'std'  => '#31A8D9'
-			),
-			array(
-				'id'      => 'icon',
-				'name'    => __( 'Icon', 'beacon-for-helpscout' ),
-				'desc'    => __( 'Select the icon for the popup button', 'beacon-for-helpscout' ),
-				'type'    => 'select',
-				'std'     => 'bouy',
-				'options' => array(
-					'bouy'     => __( 'Bouy', 'beacon-for-helpscout' ),
-					'beacon'   => __( 'Beacon', 'beacon-for-helpscout' ),
-					'message'  => __( 'Message', 'beacon-for-helpscout' ),
-					'question' => __( 'Question', 'beacon-for-helpscout' ),
-					'search'   => __( 'Search', 'beacon-for-helpscout' )
-				)
-			),
-			array(
-				'id'      => 'position',
-				'name'    => __( 'Position', 'beacon-for-helpscout' ),
-				'desc'    => __( 'Specify the location for the popup button', 'beacon-for-helpscout' ),
-				'type'    => 'select',
-				'std'     => 'br',
-				'options' => array(
-					'br' => __( 'Bottom/Right', 'beacon-for-helpscout' ),
-					'bl' => __( 'Bottom/Left', 'beacon-for-helpscout' )
-				)
-			),
-			array(
-				'id'   => 'zindex',
-				'name' => __( 'zIndex', 'beacon-for-helpscout' ),
-				'desc' => __( 'Specify a custom z-index for Beacon', 'beacon-for-helpscout' ),
-				'type' => 'number',
-				'size' => 'small',
-				'step' => '1',
-				'std'  => '1050'
+				'id'   => 'customize_header',
+				'name' => __( 'Beacon Customization', 'beacon-for-helpscout' ),
+				'desc' => '',
+				'type' => 'header'
 			),
 			array(
 				'id'   => 'top_articles',
@@ -222,6 +273,12 @@ function beacon_settings( $settings ) {
 			),
 		) ),
 		'strings' => apply_filters( 'beacon_settings_strings', array(
+			array(
+				'id'   => 'strings_header',
+				'name' => __( 'Customize Text Strings', 'beacon-for-helpscout' ),
+				'desc' => '',
+				'type' => 'header'
+			),
 			array(
 				'id'   => 'search_label',
 				'name' => __( 'Search Label', 'beacon-for-helpscout' ),
@@ -362,9 +419,41 @@ function beacon_settings( $settings ) {
 				'type' => 'text',
 				'std'  => __( 'Thanks for reaching out! Someone from our team will get back to you soon.', 'beacon-for-helpscout' )
 			)
+		) ),
+		'support' => apply_filters( 'beacon_settings_support', array(
+			array(
+				'id'   => 'support_header',
+				'name' => __( 'Beacon For Help Scout Support', 'beacon-for-helpscout' ),
+				'desc' => '',
+				'type' => 'header'
+			),
+			array(
+				'id'   => 'get_help',
+				'name' => __( 'Need Some Help?', 'beacon-for-helpscout' ),
+				'desc' => '',
+				'type' => 'hook'
+			),
+			array(
+				'id'   => 'system_info',
+				'name' => __( 'System Info', 'beacon-for-helpscout' ),
+				'desc' => '',
+				'type' => 'sysinfo'
+			)
 		) )
 	);
 
 	return $beacon_settings;
 }
 add_filter( 'beacon_registered_settings', 'beacon_settings' );
+
+
+/**
+ * Display the help link
+ *
+ * @since       1.3.0
+ * @return      void
+ */
+function beacon_display_help() {
+	echo '<a href="https://section214.com/contact/?reason=product-support&product=beacon-for-help-scout&website=' . esc_url( get_site_url() ) . '" class="beacon-get-help button button-secondary" target="_blank"><span class="dashicons dashicons-sos"></span>' . __( 'Submit a Ticket', 'beacon' ) . '</a>';
+}
+add_action( 'beacon_get_help', 'beacon_display_help' );
