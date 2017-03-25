@@ -73,6 +73,12 @@ function beacon_settings( $settings ) {
 				'type' => 'checkbox'
 			),
 			array(
+				'id'        => 'collection',
+				'name'      => __( 'Limit To Collection', 'beacon-for-helpscout' ),
+				'desc'      => sprintf( __( 'Limit docs to a single collection by specifying a %s', 'beacon-for-helpscout' ), '<a href="#" data-featherlight="' . BEACON_URL . 'assets/img/collection-id.png">' . __( 'Collection ID', 'beacon-for-helpscout' ) . '</a>' ),
+				'type'      => 'text'
+			),
+			array(
 				'id'   => 'enable_contact',
 				'name' => __( 'Enable Contact Form', 'beacon-for-helpscout' ),
 				'desc' => __( 'Display a contact form in Beacon', 'beacon-for-helpscout' ),
@@ -175,9 +181,24 @@ function beacon_settings( $settings ) {
 				)
 			),
 			array(
+				'id'   => 'zindex',
+				'name' => __( 'zIndex', 'beacon-for-helpscout' ),
+				'desc' => __( 'Specify a custom z-index for Beacon', 'beacon-for-helpscout' ),
+				'type' => 'number',
+				'size' => 'small',
+				'step' => '1',
+				'std'  => '1050'
+			),
+			array(
 				'id'   => 'top_articles',
 				'name' => __( 'Display Top Articles', 'beacon-for-helpscout' ),
 				'desc' => __( 'Check to display top articles automatically instead of just the search box', 'beacon-for-helpscout' ),
+				'type' => 'checkbox'
+			),
+			array(
+				'id'   => 'show_contact_fields',
+				'name' => __( 'Show Contact Fields', 'beacon-for-helpscout' ),
+				'desc' => __( 'Beacon can pre-fill certain fields which are then hidden by default. Check this to force them to show even when pre-filled.', 'beacon-for-helpscout' ),
 				'type' => 'checkbox'
 			),
 			array(
@@ -242,6 +263,13 @@ function beacon_settings( $settings ) {
 				'desc' => __( 'Enter the text for the Attach File error', 'beacon-for-helpscout' ),
 				'type' => 'text',
 				'std'  => __( 'The maximum file size is 10mb', 'beacon-for-helpscout' ),
+			),
+			array(
+				'id'   => 'file_extension_error',
+				'name' => __( 'File Extension Error', 'beacon-for-helpscout' ),
+				'desc' => __( 'Enter the text for the File Extension error', 'beacon-for-helpscout' ),
+				'type' => 'text',
+				'std'  => __( 'The file format you uploaded is not allowed.', 'beacon-for-helpscout' )
 			),
 			array(
 				'id'   => 'name_label',
