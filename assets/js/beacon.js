@@ -79,7 +79,8 @@ jQuery(document).ready(function ($) {
             HS.beacon.ready(function () {
                 // http://developer.helpscout.net/beacons/javascript-api/#identify
                 HS.beacon.identify({
-                    name: beacon_vars.user_name
+                    name: beacon_vars.user_name,
+					email: beacon_vars.user_email
                 });
 
                 // http://developer.helpscout.net/beacons/javascript-api/#prefill

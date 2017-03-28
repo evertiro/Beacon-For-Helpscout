@@ -45,15 +45,18 @@ function beacon_scripts() {
 	$position     = ( $settings->get_option( 'position', 'br' ) == 'bl' ? 'left' : 'right' );
 	$current_user = wp_get_current_user();
 	$user_name    = '';
+	$user_email   = '';
 
 	if ( is_user_logged_in() ) {
-		$user_name = $current_user->user_firstname . ' ' . $current_user->user_lastname;
-		$user_name = trim( $user_name );
+		$user_name  = $current_user->user_firstname . ' ' . $current_user->user_lastname;
+		$user_name  = trim( $user_name );
+		$user_email = $current_user->user_email;
 	}
 
 	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/beacon.js', array( 'jquery' ), BEACON_VER, true );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
 		'user_name'            => $user_name,
+		'user_email'           => $user_email,
 		'modal'                => ( $settings->get_option( 'display_type', 'popover' ) == 'popover' ) ? 'false' : 'true',
 		'enable_docs'          => $settings->get_option( 'enable_docs', false ),
 		'collection'           => $settings->get_option( 'collection', '' ),
