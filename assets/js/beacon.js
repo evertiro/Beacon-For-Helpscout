@@ -80,7 +80,7 @@ jQuery(document).ready(function ($) {
                 // http://developer.helpscout.net/beacons/javascript-api/#identify
                 HS.beacon.identify({
                     name: beacon_vars.user_name,
-					email: beacon_vars.user_email
+                    email: beacon_vars.user_email
                 });
 
                 // http://developer.helpscout.net/beacons/javascript-api/#prefill
