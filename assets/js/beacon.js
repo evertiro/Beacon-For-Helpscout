@@ -37,10 +37,8 @@ jQuery(document).ready(function ($) {
             }(document, window.HSCW || {}, window.HS || {});
         },
         config : function() {
-            beacon_vars.modal = beacon_vars.modal === 'true' ? true : false;
-
             HS.beacon.config({
-                modal: beacon_vars.modal,
+                modal: beacon_vars.modal === 'true' ? true : false,
                 collection: beacon_vars.collection,
                 poweredBy: beacon_vars.powered_by,
                 color: beacon_vars.default_color,
@@ -50,7 +48,7 @@ jQuery(document).ready(function ($) {
                 topArticles: beacon_vars.top_articles,
                 showName: beacon_vars.show_name,
                 showSubject: beacon_vars.show_subject,
-                showContactFields: beacon_vars.show_contact_fields,
+                showContactFields: beacon_vars.show_contact_fields === 'true' ? true : false,
                 attachment: beacon_vars.attachment,
                 instructions: beacon_vars.instructions,
                 translation: {
@@ -80,10 +78,12 @@ jQuery(document).ready(function ($) {
 
             HS.beacon.ready(function () {
                 // http://developer.helpscout.net/beacons/javascript-api/#identify
-                HS.beacon.identify({});
+                HS.beacon.identify({
+                    name: beacon_vars.user_name
+                });
 
                 // http://developer.helpscout.net/beacons/javascript-api/#prefill
-                HS.beacon.prefill({});
+                //HS.beacon.prefill({});
             });
         },
         processTriggers : function () {

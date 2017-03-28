@@ -42,10 +42,18 @@ function beacon_scripts() {
 
 	$settings = beacon()->settings;
 
-	$position = ( $settings->get_option( 'position', 'br' ) == 'bl' ? 'left' : 'right' );
+	$position     = ( $settings->get_option( 'position', 'br' ) == 'bl' ? 'left' : 'right' );
+	$current_user = wp_get_current_user();
+	$user_name    = '';
+
+	if ( is_user_logged_in() ) {
+		$user_name = $current_user->user_firstname . ' ' . $current_user->user_lastname;
+		$user_name = trim( $user_name );
+	}
 
 	wp_enqueue_script( 'beacon', BEACON_URL . 'assets/js/beacon.js', array( 'jquery' ), BEACON_VER, true );
 	wp_localize_script( 'beacon', 'beacon_vars', array(
+		'user_name'            => $user_name,
 		'modal'                => ( $settings->get_option( 'display_type', 'popover' ) == 'popover' ) ? 'false' : 'true',
 		'enable_docs'          => $settings->get_option( 'enable_docs', false ),
 		'collection'           => $settings->get_option( 'collection', '' ),
@@ -58,7 +66,7 @@ function beacon_scripts() {
 		'zindex'               => $settings->get_option( 'zindex', '1050' ),
 		'show_name'            => $settings->get_option( 'show_name', false ) ? true : false,
 		'show_subject'         => $settings->get_option( 'show_subject', false ) ? true : false,
-		'show_contact_fields'  => $settings->get_option( 'show_contact_fields', false ) ? true : false,
+		'show_contact_fields'  => $settings->get_option( 'show_contact_fields', false ) ? 'true' : 'false',
 		'top_articles'         => $settings->get_option( 'top_articles', false ) ? true : false,
 		'attachment'           => $settings->get_option( 'attachments', false ) ? true : false,
 		'powered_by'           => $settings->get_option( 'powered_by', false ) ? true : false,

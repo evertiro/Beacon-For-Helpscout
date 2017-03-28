@@ -62,10 +62,12 @@ function beacon_settings_sections( $sections ) {
 	$sections = array(
 		'general' => apply_filters( 'beacon_settings_sections_general', array(
 			'main'       => __( 'General Settings', 'beacon-for-helpscout' ),
-			'visibility' => __( 'Visibility', 'beacon-for-helpscout' ),
-			'appearance' => __( 'Appearance', 'beacon-for-helpscout' )
+			'visibility' => __( 'Visibility', 'beacon-for-helpscout' )
 		) ),
-		'customize' => apply_filters( 'beacon_settings_sections_customize', array() ),
+		'customize' => apply_filters( 'beacon_settings_sections_customize', array(
+			'main'   => __( 'Beacon Customization', 'beacon-for-helpscout' ),
+			'fields' => __( 'Fields', 'beacon-for-helpscout' )
+		) ),
 		'strings' => apply_filters( 'beacon_settings_sections_strings', array() ),
 		'support' => apply_filters( 'beacon_settings_sections_support', array() )
 	);
@@ -171,24 +173,58 @@ function beacon_settings( $settings ) {
 					'desc' => __( 'Specify whether or not to show beacon on the WordPress dashboard', 'beacon-for-helpscout' ),
 					'type' => 'checkbox'
 				)
-			) ),
-			'appearance' => apply_filters( 'beacon_settings_general_appearance', array(
+			) )
+		) ),
+		'customize' => apply_filters( 'beacon_settings_customize', array(
+			'main' => apply_filters( 'beacon_settings_customize_beacon', array(
+				array(
+					'id'   => 'customize_header',
+					'name' => __( 'Beacon Customization', 'beacon-for-helpscout' ),
+					'desc' => '',
+					'type' => 'header'
+				),
+				array(
+					'id'   => 'top_articles',
+					'name' => __( 'Display Top Articles', 'beacon-for-helpscout' ),
+					'desc' => __( 'Check to display top articles automatically instead of just the search box', 'beacon-for-helpscout' ),
+					'type' => 'checkbox'
+				),
+				array(
+					'id'   => 'powered_by',
+					'name' => __( 'Hide Powered By Text', 'beacon-for-helpscout' ),
+					'desc' => __( 'By default, beacons display a \'Powered By Help Scout\' line on the contact form confirmation dialog. Select this to disable it.', 'beacon-for-helpscout' ),
+					'type' => 'checkbox'
+				),
+				array(
+					'id'   => 'instructions',
+					'name' => __( 'Instructions', 'beacon-for-helpscout' ),
+					'desc' => __( 'Enter custom text to display on top of the contact form', 'beacon-for-helpscout' ),
+					'type' => 'text'
+				),
 				array(
 					'id'      => 'display_type',
 					'name'    => __( 'Display Type', 'beacon-for-helpscout' ),
-					'desc'    => __( 'Specify whether to display the standard beacon popover, or display beacon through a modal triggered by a link with the class \'show-beacon\'', 'beacon-for-helpscout' ),
+					'desc'    => __( 'Specify how to display the beacon interface.', 'beacon-for-helpscout' ),
 					'type'    => 'select',
 					'std'     => 'popover',
 					'options' => array(
 						'popover' => __( 'Popover', 'beacon-for-helpscout' ),
 						'modal'   => __( 'Modal', 'beacon-for-helpscout' ),
-					)
+					),
+					'tooltip_title' => __( 'Display Type', 'beacon-for-helpscout' ),
+					'tooltip_desc'  => __( 'Specify whether to display the standard beacon popover, or display beacon through a modal triggered by a link with the class \'show-beacon\'', 'beacon-for-helpscout' )
 				),
 				array(
 					'id'   => 'display_note',
 					'name' => '',
 					'desc' => sprintf( __( '%s When using the Popover display type, you can also trigger the popover through buttons with the %s, %s and %s IDs', 'beacon-for-helpscout' ), '<strong>' . __( 'Note:', 'beacon-for-helpscout' ) . '</strong>', '<code>beacon-open</code>', '<code>beacon-close</code>', '<code>beacon-toggle</code>' ),
 					'type' => 'descriptive_text'
+				),
+				array(
+					'id'   => 'appearance_header',
+					'name' => __( 'Beacon Appearance', 'beacon-for-helpscout' ),
+					'desc' => '',
+					'type' => 'header'
 				),
 				array(
 					'id'   => 'default_color',
@@ -231,58 +267,46 @@ function beacon_settings( $settings ) {
 					'step' => '1',
 					'std'  => '1050'
 				)
+			) ),
+			'fields' => apply_filters( 'beacon_settings_customize_fields', array(
+				array(
+					'id'   => 'fields_header',
+					'name' => __( 'Field Customization', 'beacon-for-helpscout' ),
+					'desc' => '',
+					'type' => 'header'
+				),
+				array(
+					'id'            => 'show_name',
+					'name'          => __( 'Show Name Field', 'beacon-for-helpscout' ),
+					'desc'          => __( 'Allow customers to enter their name manually.', 'beacon-for-helpscout' ),
+					'type'          => 'checkbox',
+					'tooltip_title' => __( 'Name Field', 'beacon-for-helpscout' ),
+					'tooltip_desc'  => __( 'If this is not enabled, Help Scout will attempt to figure out their name from their email address.', 'beacon-for-helpscout' )
+				),
+				array(
+					'id'            => 'show_subject',
+					'name'          => __( 'Show Subject Field', 'beacon-for-helpscout' ),
+					'desc'          => __( 'Allow customers to enter a subject.', 'beacon-for-helpscout' ),
+					'type'          => 'checkbox',
+					'tooltip_title' => __( 'Subject Field', 'beacon-for-helpscout' ),
+					'tooltip_desc'  => __( 'If this is not enabled, the subject will default to the last search value or a generic message.', 'beacon-for-helpscout' )
+				),
+				array(
+					'id'            => 'show_contact_fields',
+					'name'          => __( 'Show Pre-filled Fields', 'beacon-for-helpscout' ),
+					'desc'          => __( 'Check to prevent hiding pre-filled fields.', 'beacon-for-helpscout' ),
+					'type'          => 'checkbox',
+					'tooltip_title' => __( 'Pre-filled Fields', 'beacon-for-helpscout' ),
+					'tooltip_desc'  => __( 'Beacon can pre-fill the name and subject fields which are then hidden by default. Check this to force them to show even when pre-filled.', 'beacon-for-helpscout' )
+				),
+				array(
+					'id'   => 'attachments',
+					'name' => __( 'Enable Attachments', 'beacon-for-helpscout' ),
+					'desc' => __( 'Check to enable attachments in the contact form', 'beacon-for-helpscout' ),
+					'type' => 'checkbox',
+					'std'  => true
+				)
 			) )
-		) ),
-		'customize' => apply_filters( 'beacon_settings_customize', array(
-			array(
-				'id'   => 'customize_header',
-				'name' => __( 'Beacon Customization', 'beacon-for-helpscout' ),
-				'desc' => '',
-				'type' => 'header'
-			),
-			array(
-				'id'   => 'top_articles',
-				'name' => __( 'Display Top Articles', 'beacon-for-helpscout' ),
-				'desc' => __( 'Check to display top articles automatically instead of just the search box', 'beacon-for-helpscout' ),
-				'type' => 'checkbox'
-			),
-			array(
-				'id'   => 'show_name',
-				'name' => __( 'Show Name Field', 'beacon-for-helpscout' ),
-				'desc' => __( 'Allow customers to enter their name manually. If this is not enabled, Help Scout will attempt to figure out their name from their email address.', 'beacon-for-helpscout' ),
-				'type' => 'checkbox'
-			),
-			array(
-				'id'   => 'show_subject',
-				'name' => __( 'Show Subject Field', 'beacon-for-helpscout' ),
-				'desc' => __( 'Allow customers to enter a subject. If this is not enabled, the subject will default to the last search value or a generic message.', 'beacon-for-helpscout' ),
-				'type' => 'checkbox'
-			),
-			array(
-				'id'   => 'show_contact_fields',
-				'name' => __( 'Show Contact Fields', 'beacon-for-helpscout' ),
-				'desc' => __( 'Beacon can pre-fill certain fields which are then hidden by default. Check this to force them to show even when pre-filled.', 'beacon-for-helpscout' ),
-				'type' => 'checkbox'
-			),
-			array(
-				'id'   => 'attachments',
-				'name' => __( 'Enable Attachments', 'beacon-for-helpscout' ),
-				'desc' => __( 'Check to enable attachments in the contact form', 'beacon-for-helpscout' ),
-				'type' => 'checkbox',
-				'std'  => true
-			),
-			array(
-				'id'   => 'powered_by',
-				'name' => __( 'Hide Powered By Text', 'beacon-for-helpscout' ),
-				'desc' => __( 'By default, beacons display a \'Powered By Help Scout\' line on the contact form confirmation dialog. Select this to disable it.', 'beacon-for-helpscout' ),
-				'type' => 'checkbox'
-			),
-			array(
-				'id'   => 'instructions',
-				'name' => __( 'Instructions', 'beacon-for-helpscout' ),
-				'desc' => __( 'Enter custom text to display on top of the contact form', 'beacon-for-helpscout' ),
-				'type' => 'text'
-			),
 		) ),
 		'strings' => apply_filters( 'beacon_settings_strings', array(
 			array(
