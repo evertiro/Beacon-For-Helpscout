@@ -138,6 +138,18 @@ function beacon_settings( $settings ) {
 					'desc' => sprintf( __( 'Enter the form ID for your Beacon found <a href="%s" target="_blank">here</a>', 'beacon-for-helpscout' ), 'https://secure.helpscout.net/settings/beacons/' ),
 					'type' => 'text'
 				),
+				array(
+					'id'   => 'shortcodes_header',
+					'name' => __( 'Beacon Shortcodes', 'beacon-for-helpscout' ),
+					'desc' => '',
+					'type' => 'header'
+				),
+				array(
+					'id'   => 'shortcodes_note',
+					'name' => '<code>beacon_article</code>',
+					'desc' => sprintf( __( 'The %s shortcode can be used to quick-link to a specific article. It accepts a single arguement, %s, which should be the ID of the article to display%s', 'beacon-for-helpscout' ), '<code>beacon_article</code>', '<code>id</code>', '<br /><br /><strong>Example:</strong> <code>[beacon_article id="562410b6c69791452ed4c976"]Click Me![/beacon_article]</code>' ),
+					'type' => 'descriptive_text'
+				)
 			) ),
 			'visibility' => apply_filters( 'beacon_settings_general_visibility', array(
 				array(
@@ -217,7 +229,7 @@ function beacon_settings( $settings ) {
 				array(
 					'id'   => 'display_note',
 					'name' => '',
-					'desc' => sprintf( __( '%s When using the Popover display type, you can also trigger the popover through buttons with the %s, %s and %s IDs', 'beacon-for-helpscout' ), '<strong>' . __( 'Note:', 'beacon-for-helpscout' ) . '</strong>', '<code>beacon-open</code>', '<code>beacon-close</code>', '<code>beacon-toggle</code>' ),
+					'desc' => sprintf( __( '%s When using the Popover display type, you can also trigger the popover through buttons with the %s, %s and %s IDs or classes', 'beacon-for-helpscout' ), '<strong>' . __( 'Note:', 'beacon-for-helpscout' ) . '</strong>', '<code>beacon-open</code>', '<code>beacon-close</code>', '<code>beacon-toggle</code>' ),
 					'type' => 'descriptive_text'
 				),
 				array(

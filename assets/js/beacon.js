@@ -102,6 +102,23 @@ jQuery(document).ready(function ($) {
                 HS.beacon.toggle();
             });
 
+            // Class-based triggers
+            $('.beacon-open').click(function(e) {
+                e.preventDefault();
+                HS.beacon.open();
+            });
+            $('.beacon-close').click(function(e) {
+                e.preventDefault();
+                HS.beacon.close();
+            });
+            $('.beacon-toggle').click(function(e) {
+                e.preventDefault();
+                HS.beacon.toggle();
+            });
+            $('.beacon-article-link').click(function(e) {
+                e.preventDefault();
+            });
+
             // Core modal trigger
             if ( beacon_vars.modal === 'true' ) {
                 $('.show-beacon.menu-item a').click(function(e) {
