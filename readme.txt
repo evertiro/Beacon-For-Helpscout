@@ -4,14 +4,14 @@ Plugin URI: https://wordpress.org/plugins/beacon-for-helpscout/
 Contributors: section214
 Tags: beacon, helpscout, help scout
 Requires at least: 3.0
-Tested up to: 4.3
-Stable tag: 1.2.0
+Tested up to: 4.7.3
+Stable tag: 1.3.0
 
 Integrate Help Scout Beacons with your WordPress site... without dealing with messy JavaScript!
 
 == Description ==
 
-The new Beacon feature from Help Scout is AWESOME! But... customizing it if you aren't familiar with JavaScript can be a pain. Let us do the customization for you! Beacon For Help Scout is a simple but powerful plugin for integrating Beacons into WordPress quickly and easily. Simply follow the directions on the [installation tab](https://wordpress.org/plugins/beacon-for-helpscout/installation/), and you'll be up and running in no time!
+The new Beacon feature from Help Scout is AWESOME! But... customizing it if you aren't familiar with JavaScript can be a pain. Let us do the customization for you! Beacon For Help Scout is a simple but powerful plugin for integrating Beacons into WordPress quickly and easily. Simply follow the directions in the installation section below, and you'll be up and running in no time!
 
 **Follow this plugin on [GitHub](https://github.com/Section214/Beacon)**
 
@@ -29,6 +29,12 @@ The new Beacon feature from Help Scout is AWESOME! But... customizing it if you 
 = None yet! =
 
 == Changelog ==
+= 1.3.0 =
+* Added: Article shortcode
+* Added: Autofill support
+* Added: Support for new name & subject fields
+* Improved: Settings page
+
 = 1.2.0 =
 * Updated: Settings library
 * Improved: General cleanup
