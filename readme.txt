@@ -11,7 +11,7 @@ Integrate Help Scout Beacons with your WordPress site... without dealing with me
 
 == Description ==
 
-The new Beacon feature from Help Scout is AWESOME! But... customizing it if you aren't familiar with JavaScript can be a pain. Let us do the customization for you! Beacon For Help Scout is a simple but powerful plugin for integrating Beacons into WordPress quickly and easily. Simply follow the directions in the installation section below, and you'll be up and running in no time!
+The new Beacon feature from Help Scout is AWESOME! But... customizing it if you aren't familiar with JavaScript can be a pain. Let us do the customization for you! Beacon For Help Scout is a simple but powerful plugin for integrating Beacons into WordPress quickly and easily. Simply follow the directions on the [installation tab](https://wordpress.org/plugins/beacon-for-helpscout/installation/), and you'll be up and running in no time!
 
 **Follow this plugin on [GitHub](https://github.com/Section214/Beacon)**
 
