@@ -476,12 +476,6 @@ function beacon_settings( $settings ) {
 				'type' => 'header'
 			),
 			array(
-				'id'   => 'get_help',
-				'name' => __( 'Need Some Help?', 'beacon-for-helpscout' ),
-				'desc' => '',
-				'type' => 'hook'
-			),
-			array(
 				'id'   => 'system_info',
 				'name' => __( 'System Info', 'beacon-for-helpscout' ),
 				'desc' => '',
@@ -493,15 +487,3 @@ function beacon_settings( $settings ) {
 	return $beacon_settings;
 }
 add_filter( 'beacon_registered_settings', 'beacon_settings' );
-
-
-/**
- * Display the help link
- *
- * @since       1.3.0
- * @return      void
- */
-function beacon_display_help() {
-	echo '<a href="https://section214.com/contact/?reason=product-support&product=beacon-for-help-scout&website=' . esc_url( get_site_url() ) . '" class="beacon-get-help button button-secondary" target="_blank"><span class="dashicons dashicons-sos"></span>' . __( 'Submit a Ticket', 'beacon' ) . '</a>';
-}
-add_action( 'beacon_get_help', 'beacon_display_help' );

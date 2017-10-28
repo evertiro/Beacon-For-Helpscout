@@ -5,11 +5,11 @@
  * Description:     Integrate Beacon from Help Scout into your WordPress site
  * Version:         1.3.0
  * Author:          Daniel J Griffiths
- * Author URI:      https://section214.com
+ * Author URI:      https://evertiro.com
  * Text Domain:     beacon
  *
  * @package         Beacon
- * @author          Daniel J Griffiths <dgriffiths@section214.com>
+ * @author          Daniel J Griffiths <dgriffiths@evertiro.com>
  */
 
 
